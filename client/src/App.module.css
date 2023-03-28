@@ -1,0 +1,19 @@
+#light {
+  background-color: bisque;
+  color: black;
+}
+
+#dark {
+  background-color: black;
+  color: azure;
+}
+
+#light .switch {
+  background: rgba(128, 128, 128, 0.684);
+}
+
+#dark .switch {
+  background: rgb(93, 92, 92);
+}
+
+
