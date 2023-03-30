@@ -15,7 +15,7 @@ function App() {
   };
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div id={style[theme]}>
+      <div className={style.app_main} id={style[theme]}>
         <Switch
           onChange={toggleTheme}
           className={style.switch}

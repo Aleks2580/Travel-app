@@ -1,3 +1,170 @@
+.header_block {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
 .main_block {
  min-height: 25vh;
+ width: 72vw;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ margin: 0;
+}
+
+
+.img_logo {
+  height: 4.5vh;
+  width: 3vw;
+}
+
+.text_logo {
+  font-size: 22px;
+}
+
+.logo {
+  display:flex;
+}
+
+.right_block {
+  display: flex;
+  /* margin: 0 auto; */
+}
+
+.user_block {
+  display: flex;
+}
+
+.main_block {
+  display: flex;
+  margin-top: 2vw;
+}
+
+.main_center_block {
+  display: flex;
+  width: 72vw;
+  justify-content: space-between;
+}
+
+.world_button {
+  background: none;
+  border: none;
+  color: blue;
+  box-shadow: none;
+}
+
+/* .world_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(0, 13, 255) solid !important; 
+  color: rgb(0, 162, 255) !important;
+  background-color: transparent !important;
+} */
+
+.menu_button {
+  background: none;
+  box-shadow: none;
+  color: blue;
+}
+
+.menu_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(0, 13, 255) solid !important; 
+  color: rgb(0, 162, 255) !important;
+  background-color: transparent !important;
+}
+
+.user_button {
+  background: none;
+  border: none;
+  color: blue;
+  box-shadow: none;
+  width: 9vw;
+}
+
+.user_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(0, 13, 255) solid !important; 
+  color: rgb(0, 162, 255) !important;
+}
+
+.icon_world {
+  width: 2vw;
+  margin-right: 0.5vw;
+}
+
+.user_block {
+  width: 7vw;
+  /* margin-right: vw; */
+}
+
+.icon_menu {
+  width: 2vw;
+}
+
+#light.world_button {
+  color: rgb(0, 0, 0) !important;
+}
+
+#dark.world_button  {
+  color: rgb(255, 255, 255) !important;
+}
+
+#light.world_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(0, 0, 0) solid !important; 
+  color: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
+}
+
+#dark.world_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(255, 255, 255) solid !important; 
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
+}
+
+#light.user_button {
+  color: rgb(0, 0, 0) !important;
+}
+
+#dark.user_button  {
+  color: rgb(255, 255, 255) !important;
+}
+
+#light.user_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(0, 0, 0) solid !important; 
+  color: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
+}
+
+#dark.user_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(255, 255, 255) solid !important; 
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
+}
+
+#light.menu_button {
+  color: rgb(0, 0, 0) !important;
+}
+
+#dark.menu_button  {
+  color: rgb(255, 255, 255) !important;
+}
+
+#light.menu_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(0, 0, 0) solid !important; 
+  color: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
+}
+
+#dark.menu_button:hover {
+  border-radius: 5px; 
+  border: 1px rgb(255, 255, 255) solid !important; 
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
 }
