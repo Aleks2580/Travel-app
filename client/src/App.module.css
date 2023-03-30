@@ -8,11 +8,11 @@
   color: azure !important;
 }
 
-#light.switch {
+#light .switch {
   background: rgba(128, 128, 128, 0.684);
 }
 
-#dark.switch {
+#dark .switch {
   background: rgb(93, 92, 92);
 }
 
