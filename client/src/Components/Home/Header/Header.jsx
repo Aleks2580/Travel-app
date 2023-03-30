@@ -1,12 +1,44 @@
 import React from "react";
 import SearchHeader from "./SearchHeader/SearchHeader";
 import style from "./Header.module.css";
+import { GlobalOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import { useContext } from "react";
+import { ThemeContext } from "../../../App";
 
 export default function Header() {
+
+  const {theme} = useContext(ThemeContext);
+  console.log(theme)
+
   return (
-    <div className={style.main_block}>
-      Home
-      <SearchHeader />
+    <div className={style.header_block}>
+      <div className={style.main_block}>
+        <div className={style.main_center_block}>
+          <div className={style.left_block}>
+            <div className={style.logo}>
+              <img
+                className={style.img_logo}
+                src="./img/logo/logo.png"
+                alt="logo_jetsearch"
+              />
+              <div className={style.text_logo}>JetSearch</div>
+            </div>
+          </div>
+          <div className={style.right_block}>
+            <div className={style.icon_world}>
+              <Button id={style[theme]} className={style.world_button} type="primary"  icon={<GlobalOutlined />} />
+            </div>
+            <div className={style.user_block}>
+              <Button id={style[theme]} className={style.user_button} icon={<UserOutlined />}>Log in</Button>
+            </div>
+            <div className={style.icon_menu}>
+              <Button id={style[theme]} className={style.menu_button} type="primary" icon={<MenuOutlined />} />
+            </div>
+          </div>
+        </div>
+        <SearchHeader />
+      </div>
     </div>
   );
 }
