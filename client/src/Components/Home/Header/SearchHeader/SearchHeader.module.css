@@ -19,6 +19,15 @@
   height: 7.5vh;
   border-radius: 10px 0px 0px 10px;
   margin-right: 0.25vw;
+  padding-top: 20px;
+}
+
+.middle_person {
+  width: 11vw;
+  height: 7.5vh;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 0.25vw;
+  padding-top: 20px;
 }
 
 .input_second_country {
@@ -26,6 +35,7 @@
   height: 7.5vh;
   border-radius: 0px 0px 0px 0px;
   margin-right: 0.25vw;
+  padding-top: 20px;
 }
 
 .first_date {
@@ -33,6 +43,7 @@
   height: 7.5vh;
   border-radius: 0px 0px 0px 0px;
   margin-right: 0.25vw;
+  padding-top: 20px;
 }
 
 .second_date {
@@ -40,6 +51,7 @@
   height: 7.5vh;
   border-radius: 0px 0px 0px 0px;
   margin-right: 0.25vw;
+  padding-top: 20px;
 }
 
 .persons_value {
@@ -48,7 +60,7 @@
   border-radius: 0px 10px 10px 0px;
   margin-right: 0.25vw;
   background-color:white;
-
+  padding-top: 20px;
   border-width: 1px;
     border-style: solid;
     border-color: #d9d9d9;
@@ -71,24 +83,27 @@
 
 .middle_input_person {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   margin-right: 1vw;
 }
 
 .persons_value {
-  align-items: center;
+  /* align-items: center; */
   display: flex;
   justify-content: center;
 }
 
 .btn_search_trips {
-  width: 5vw;
+  max-width: 5vw;
   height: 7.5vh;
   border-radius: 10px;
   background-color: rgb(61, 61, 254);
   box-shadow: none;
   border-color: gray;
   border-width: 0.5px;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 
 .btn_search_trips:hover {
@@ -114,4 +129,94 @@
   font-size: 2vw !important;
   color: white !important;
   background-color: green;
+}
+
+.span_first_country {
+  position: absolute;
+  z-index: 1;
+  margin-left: 12px;
+  margin-top: 20px;
+  font-weight:bold;
+  font-size: 13px;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 6vw;
+}
+
+.middle_input_first_country {
+  display: flex;
+}
+
+.span_second_country {
+  position: absolute;
+  z-index: 1;
+  margin-left: 12px;
+  margin-top: 20px;
+  font-weight:bold;
+  font-size: 13px;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 6vw;
+}
+
+.middle_input_second_country {
+  display: flex;
+}
+
+.span_first_date {
+  position: absolute;
+  z-index: 1;
+  margin-left: 12px;
+  margin-top: 20px;
+  font-weight:bold;
+  font-size: 13px;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 6vw;
+}
+
+.span_second_date {
+  position: absolute;
+  z-index: 1;
+  margin-left: 12px;
+  margin-top: 20px;
+  font-weight:bold;
+  font-size: 13px;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 6vw;
+}
+
+.middle_input_first_date {
+  display: flex;
+}
+
+.middle_input_second_date {
+  display: flex;
+}
+
+.span_input_person {
+  max-width: 9.5vw;
+  position: absolute;
+  z-index: 1;
+  margin-left: 12px;
+  margin-top: 20px;
+  font-weight:bold;
+  font-size: 13px;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.middle_input_person {
+  display: flex;
 }
