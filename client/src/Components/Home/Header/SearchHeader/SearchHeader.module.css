@@ -59,16 +59,16 @@
   height: 7.25vh;
   border-radius: 0px 10px 10px 0px;
   margin-right: 0.25vw;
-  background-color:white;
+  background-color: white;
   padding-top: 20px;
   border-width: 1px;
-    border-style: solid;
-    border-color: #d9d9d9;
-    transition: all 0.2s;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-    transition-property: all;
+  border-style: solid;
+  border-color: #d9d9d9;
+  transition: all 0.2s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: all;
 }
 
 .persons_value:hover {
@@ -102,12 +102,12 @@
   border-color: gray;
   border-width: 0.5px;
   white-space: nowrap;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn_search_trips:hover {
-  background-color:rgba(61, 61, 254, 0.737) !important;
+  background-color: rgba(61, 61, 254, 0.737) !important;
 }
 
 .middle_checkbox_block {
@@ -117,8 +117,6 @@
 .checkbox_style {
   font-weight: 500;
 }
-
-
 
 #light.checkbox_antd {
   font-size: 5vw !important;
@@ -136,12 +134,12 @@
   z-index: 1;
   margin-left: 12px;
   margin-top: 20px;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 13px;
   color: gray;
   white-space: nowrap;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 6vw;
 }
 
@@ -154,12 +152,12 @@
   z-index: 1;
   margin-left: 12px;
   margin-top: 20px;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 13px;
   color: gray;
   white-space: nowrap;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 6vw;
 }
 
@@ -172,12 +170,12 @@
   z-index: 1;
   margin-left: 12px;
   margin-top: 20px;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 13px;
   color: gray;
   white-space: nowrap;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 6vw;
 }
 
@@ -186,12 +184,12 @@
   z-index: 1;
   margin-left: 12px;
   margin-top: 20px;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 13px;
   color: gray;
   white-space: nowrap;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 6vw;
 }
 
@@ -209,12 +207,12 @@
   z-index: 1;
   margin-left: 12px;
   margin-top: 20px;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 13px;
   color: gray;
   white-space: nowrap;
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .middle_input_person {

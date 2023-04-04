@@ -5,7 +5,7 @@ import { ThemeContext } from "../../../../App";
 
 export default function SearchHeader() {
   const { theme } = useContext(ThemeContext);
-  console.log('1', theme)
+  console.log("1", theme);
   const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -33,8 +33,8 @@ export default function SearchHeader() {
           <span className={style.span_second_country}>To:</span>
         </div>
         <div className={style.middle_input_first_date}>
-           <DatePicker className={style.first_date} onChange={onChange} />
-           <span className={style.span_first_date}>Depart:</span>
+          <DatePicker className={style.first_date} onChange={onChange} />
+          <span className={style.span_first_date}>Depart:</span>
         </div>
         <div className={style.middle_input_second_date}>
           <DatePicker className={style.second_date} onChange={onChange} />
@@ -46,15 +46,25 @@ export default function SearchHeader() {
             // placeholder="Change country"
             readOnly
           />
-          <span className={style.span_input_person}>Travellers & cabin class:</span>
+          <span className={style.span_input_person}>
+            Travellers & cabin class:
+          </span>
         </div>
         <div className={style.middle_button_search}>
-          <Button className={style.btn_search_trips} type="primary">Search</Button>
+          <Button className={style.btn_search_trips} type="primary">
+            Search
+          </Button>
         </div>
       </div>
       <div className={style.middle_checkbox_block}>
         <div className={style.checkbox_style}>
-          <Checkbox id={style[theme]} className={style.checkbox_antd} onChange={onCheck}>Checkbox</Checkbox>
+          <Checkbox
+            id={style[theme]}
+            className={style.checkbox_antd}
+            onChange={onCheck}
+          >
+            Checkbox
+          </Checkbox>
         </div>
       </div>
     </div>

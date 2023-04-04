@@ -23,9 +23,9 @@ export default function Header() {
     setIsModalOpen(false);
   };
 
-  const handleLanguageChange = (value) => {
-    setSelectedLanguage(value);
-  };
+  // const handleLanguageChange = (value) => {
+  //   setSelectedLanguage(value);
+  // };
 
   const handleCurrencyChange = (value) => {
     setSelectedCurrency(value);
@@ -73,7 +73,7 @@ export default function Header() {
                 isModalOpen={isModalOpen}
                 handleSave={handleSave}
                 handleCancel={handleCancel}
-                handleLanguageChange={handleLanguageChange}
+                //handleLanguageChange={handleLanguageChange}
                 handleCurrencyChange={handleCurrencyChange}
                 handleCountryChange={handleCountryChange}
                 selectedLanguage={selectedLanguage}
