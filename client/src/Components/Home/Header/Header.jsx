@@ -2,10 +2,9 @@ import React, { useContext, useState } from "react";
 import SearchHeader from "./SearchHeader/SearchHeader";
 import style from "./Header.module.css";
 import { GlobalOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Modal, Select } from "antd";
+import { Button } from "antd";
 import { ThemeContext } from "../../../App";
-
-const { Option } = Select;
+import ModalHeader from "./ModalHeader/ModalHeader";
 
 export default function Header() {
   const { theme } = useContext(ThemeContext);
@@ -70,65 +69,17 @@ export default function Header() {
                   Log in
                 </Button>
               </div>
-              <Modal
-                title={
-                  <h2 className={style.modal_settings_title}>
-                    Regional settings{" "}
-                  </h2>
-                }
-                open={isModalOpen}
-                onOk={handleSave}
-                onCancel={handleCancel}
-                className={style.modal_settings}
-                footer={[
-                  <Button
-                    className={style.modal_settings_button}
-                    key="save"
-                    type="primary"
-                    onClick={handleSave}
-                  >
-                    Save
-                  </Button>,
-                ]}
-              >
-                <div className={style.dropdown_menu_settings}>
-                  <label htmlFor="language-select">Language:</label>
-                  <Select
-                    className={style.select}
-                    id="language-select"
-                    defaultValue={selectedLanguage}
-                    onChange={handleLanguageChange}
-                  >
-                    <Option value="English">English</Option>
-                    <Option value="Spanish">Spanish</Option>
-                    <Option value="French">French</Option>
-                  </Select>
-
-                  <label htmlFor="currency-select">Currency:</label>
-                  <Select
-                    className={style.select}
-                    id="currency-select"
-                    defaultValue={selectedCurrency}
-                    onChange={handleCurrencyChange}
-                  >
-                    <Option value="USD">USD</Option>
-                    <Option value="EUR">EUR</Option>
-                    <Option value="GBP">GBP</Option>
-                  </Select>
-
-                  <label htmlFor="country-select">Country/Region:</label>
-                  <Select
-                    className={style.select}
-                    id="country-select"
-                    defaultValue={selectedCountry}
-                    onChange={handleCountryChange}
-                  >
-                    <Option value="United States">United States</Option>
-                    <Option value="Canada">Canada</Option>
-                    <Option value="Mexico">Mexico</Option>
-                  </Select>
-                </div>
-              </Modal>
+              <ModalHeader
+                isModalOpen={isModalOpen}
+                handleSave={handleSave}
+                handleCancel={handleCancel}
+                handleLanguageChange={handleLanguageChange}
+                handleCurrencyChange={handleCurrencyChange}
+                handleCountryChange={handleCountryChange}
+                selectedLanguage={selectedLanguage}
+                selectedCurrency={selectedCurrency}
+                selectedCountry={selectedCountry}
+              ></ModalHeader>
               <div className={style.icon_menu}>
                 <Button
                   id={style[theme]}

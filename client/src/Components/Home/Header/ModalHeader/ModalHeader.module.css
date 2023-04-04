@@ -1,0 +1,44 @@
+.modal_settings_title {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.dropdown_menu_settings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dropdown_menu_settings label {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.dropdown_menu_settings .select {
+  width: 33vw;
+  margin-bottom: 10px;
+}
+
+.modal_settings_button {
+  display: inline-block;
+  min-height: 2.25rem;
+  margin-top: 25px;
+  width: 33vw;
+  background-color: #05203c;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: none;
+}
+
+.modal_settings_button:hover {
+  background-color: #05478d !important;
+}
