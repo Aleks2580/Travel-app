@@ -21,23 +21,34 @@ export default function SearchHeader() {
         <div className={style.middle_input_first_country}>
           <Input
             className={style.input_first_country}
-            placeholder="From"
-          ></Input>
+            placeholder="Change country"
+          />
+          <span className={style.span_first_country}>From:</span>
         </div>
         <div className={style.middle_input_second_country}>
           <Input
             className={style.input_second_country}
             placeholder="Change country"
-          ></Input>
+          />
+          <span className={style.span_second_country}>To:</span>
         </div>
         <div className={style.middle_input_first_date}>
           <DatePicker className={style.first_date} onChange={onChange} />
+          <span className={style.span_first_date}>Depart:</span>
         </div>
         <div className={style.middle_input_second_date}>
           <DatePicker className={style.second_date} onChange={onChange} />
+          <span className={style.span_second_date}>Return:</span>
         </div>
         <div className={style.middle_input_person}>
-          <div className={style.persons_value}>ХУЙНЯ ЭТО ТЫ</div>
+          <Input
+            className={style.middle_person}
+            // placeholder="Change country"
+            readOnly
+          />
+          <span className={style.span_input_person}>
+            Travellers & cabin class:
+          </span>
         </div>
         <div className={style.middle_button_search}>
           <Button className={style.btn_search_trips} type="primary">
