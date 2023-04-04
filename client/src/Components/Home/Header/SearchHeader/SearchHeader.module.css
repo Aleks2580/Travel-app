@@ -47,16 +47,16 @@
   height: 7.25vh;
   border-radius: 0px 10px 10px 0px;
   margin-right: 0.25vw;
-  background-color:white;
+  background-color: white;
 
   border-width: 1px;
-    border-style: solid;
-    border-color: #d9d9d9;
-    transition: all 0.2s;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-    transition-property: all;
+  border-style: solid;
+  border-color: #d9d9d9;
+  transition: all 0.2s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: all;
 }
 
 .persons_value:hover {
@@ -92,7 +92,7 @@
 }
 
 .btn_search_trips:hover {
-  background-color:rgba(61, 61, 254, 0.737) !important;
+  background-color: rgba(61, 61, 254, 0.737) !important;
 }
 
 .middle_checkbox_block {
@@ -102,8 +102,6 @@
 .checkbox_style {
   font-weight: 500;
 }
-
-
 
 #light.checkbox_antd {
   font-size: 5vw !important;
