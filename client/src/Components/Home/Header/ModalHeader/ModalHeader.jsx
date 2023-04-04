@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./ModalHeader.module.css";
 import { Button, Modal, Select } from "antd";
+import { useTranslation } from "react-i18next";
 
 const { Option } = Select;
 
@@ -16,9 +17,10 @@ export default function ModalHeader({
   selectedCountry,
   theme,
 }) {
+  const { t } = useTranslation();
   return (
     <Modal
-      title={<h2 className={style.modal_settings_title}>Regional settings</h2>}
+      title={<h2 className={style.modal_settings_title}>{t("modal.title")}</h2>}
       open={isModalOpen}
       onOk={handleSave}
       onCancel={handleCancel}
