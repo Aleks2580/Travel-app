@@ -17,6 +17,7 @@
 }
 
 .switch {
+  font-family: "Montserrat";
   position: absolute;
   top: 0;
   right: 0;
@@ -26,7 +27,6 @@
 
 .app_main {
   position: relative;
-
 }
 
 .ant-checkbox-wrapper {
