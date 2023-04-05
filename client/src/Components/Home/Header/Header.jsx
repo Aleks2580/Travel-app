@@ -5,6 +5,7 @@ import { GlobalOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { ThemeContext } from "../../../App";
 import ModalHeader from "./ModalHeader/ModalHeader";
+import i18n from "i18next";
 
 export default function Header() {
   const { theme } = useContext(ThemeContext);
@@ -23,9 +24,10 @@ export default function Header() {
     setIsModalOpen(false);
   };
 
-  // const handleLanguageChange = (value) => {
-  //   setSelectedLanguage(value);
-  // };
+  const handleLanguageChange = (value) => {
+    setSelectedLanguage(value);
+    i18n.changeLanguage(value);
+  };
 
   const handleCurrencyChange = (value) => {
     setSelectedCurrency(value);
@@ -73,7 +75,7 @@ export default function Header() {
                 isModalOpen={isModalOpen}
                 handleSave={handleSave}
                 handleCancel={handleCancel}
-                //handleLanguageChange={handleLanguageChange}
+                handleLanguageChange={handleLanguageChange}
                 handleCurrencyChange={handleCurrencyChange}
                 handleCountryChange={handleCountryChange}
                 selectedLanguage={selectedLanguage}

@@ -2,7 +2,6 @@ import React from "react";
 import style from "./ModalHeader.module.css";
 import { Button, Modal, Select } from "antd";
 import { useTranslation } from "react-i18next";
-import i18n from "i18next";
 
 const { Option } = Select;
 
@@ -10,7 +9,7 @@ export default function ModalHeader({
   isModalOpen,
   handleSave,
   handleCancel,
-  //handleLanguageChange,
+  handleLanguageChange,
   handleCurrencyChange,
   handleCountryChange,
   selectedLanguage,
@@ -19,10 +18,7 @@ export default function ModalHeader({
   theme,
 }) {
   const { t } = useTranslation();
-  const handleLanguageChange = (value) => {
-    //handleLanguageChange(value);
-    i18n.changeLanguage(value);
-  };
+
   return (
     <Modal
       title={<h2 className={style.modal_settings_title}>{t("modal.title")}</h2>}
@@ -46,8 +42,9 @@ export default function ModalHeader({
         <Select
           className={style.select}
           id="language-select"
-          defaultValue={selectedLanguage}
+          defaultValue="English"
           onChange={handleLanguageChange}
+          value={selectedLanguage}
         >
           <Option value="English">English</Option>
           <Option value="Russian">Russian</Option>
