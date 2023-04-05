@@ -5,6 +5,8 @@ import { GlobalOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { ThemeContext } from "../../../App";
 import ModalHeader from "./ModalHeader/ModalHeader";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export default function Header() {
   const { theme } = useContext(ThemeContext);
@@ -23,9 +25,10 @@ export default function Header() {
     setIsModalOpen(false);
   };
 
-  // const handleLanguageChange = (value) => {
-  //   setSelectedLanguage(value);
-  // };
+  const handleLanguageChange = (value) => {
+    setSelectedLanguage(value);
+    i18n.changeLanguage(value);
+  };
 
   const handleCurrencyChange = (value) => {
     setSelectedCurrency(value);
@@ -34,6 +37,8 @@ export default function Header() {
   const handleCountryChange = (value) => {
     setSelectedCountry(value);
   };
+
+  const { t } = useTranslation();
 
   return (
     <>
@@ -66,14 +71,14 @@ export default function Header() {
                   className={style.user_button}
                   icon={<UserOutlined />}
                 >
-                  Log in
+                  {t("header.login")}
                 </Button>
               </div>
               <ModalHeader
                 isModalOpen={isModalOpen}
                 handleSave={handleSave}
                 handleCancel={handleCancel}
-                //handleLanguageChange={handleLanguageChange}
+                handleLanguageChange={handleLanguageChange}
                 handleCurrencyChange={handleCurrencyChange}
                 handleCountryChange={handleCountryChange}
                 selectedLanguage={selectedLanguage}

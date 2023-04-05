@@ -100,12 +100,16 @@
   border-radius: 10px;
   background-color: rgb(61, 61, 254);
   box-shadow: none;
-  border-color: gray;
   border-width: 0.5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .btn_search_trips:hover {
