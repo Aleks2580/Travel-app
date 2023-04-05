@@ -3,10 +3,13 @@ import style from "./SearchHeader.module.css";
 import { Input, DatePicker, Button, Checkbox } from "antd";
 import { ThemeContext } from "../../../../App";
 import { useTranslation } from "react-i18next";
+import enUS from "antd/es/date-picker/locale/en_US";
+import ruRU from "antd/es/date-picker/locale/ru_RU";
 
 export default function SearchHeader() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { theme } = useContext(ThemeContext);
+  const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
   const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -22,34 +25,50 @@ export default function SearchHeader() {
         <div className={style.middle_input_first_country}>
           <Input
             className={style.input_first_country}
-            placeholder="Country, city or airport"
+            placeholder={t("header_search.country_city")}
           />
-          <span className={style.span_first_country}>From:</span>
+          <span className={style.span_first_country}>
+            {t("header_search.from")}:
+          </span>
         </div>
         <div className={style.middle_input_second_country}>
           <Input
             className={style.input_second_country}
-            placeholder="Country, city or airport"
+            placeholder={t("header_search.country_city")}
           />
-          <span className={style.span_second_country}>To:</span>
+          <span className={style.span_second_country}>
+            {t("header_search.to")}:
+          </span>
         </div>
         <div className={style.middle_input_first_date}>
-          <DatePicker className={style.first_date} onChange={onChange} />
-          <span className={style.span_first_date}>Depart:</span>
+          <DatePicker
+            className={style.first_date}
+            onChange={onChange}
+            locale={antdLocale}
+          />
+          <span className={style.span_first_date}>
+            {t("header_search.depart")}:
+          </span>
         </div>
         <div className={style.middle_input_second_date}>
-          <DatePicker className={style.second_date} onChange={onChange} />
-          <span className={style.span_second_date}>Return:</span>
+          <DatePicker
+            className={style.second_date}
+            onChange={onChange}
+            locale={antdLocale}
+          />
+          <span className={style.span_second_date}>
+            {t("header_search.return")}:
+          </span>
         </div>
         <div className={style.middle_input_person}>
           <Input className={style.middle_person} readOnly />
           <span className={style.span_input_person}>
-            Travellers & cabin class:
+            {t("header_search.travellers")}:
           </span>
         </div>
         <div className={style.middle_button_search}>
           <Button className={style.btn_search_trips} type="primary">
-            Search
+            {t("header_search.search")}
           </Button>
         </div>
       </div>
@@ -59,10 +78,11 @@ export default function SearchHeader() {
             className={`${style[`${theme}_checkbox`]}`}
             onChange={onCheck}
           >
-            Direct flights
+            {t("header_search.direct_flights")}
           </Checkbox>
         </div>
       </div>
     </div>
+    // </ConfigProvider>
   );
 }

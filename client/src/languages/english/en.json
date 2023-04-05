@@ -13,15 +13,22 @@
     "button": "Save"
   },
   "theme_switch": {
-    "light" : "light",
+    "light": "light",
     "dark": "dark"
   },
   "header": {
-    "login" : "Log in"
+    "login": "Log in"
   },
-   "header_search": {
-    "motto" : "Find your flight in a flash",
-    "from" : "From"
+  "header_search": {
+    "motto": "Find your flight in a flash",
+    "from": "From",
+    "country_city": "Country, city or airport",
+    "to": "To",
+    "depart": "Depart",
+    "return": "Return",
+    "travellers": "Travellers & cabin class",
+    "select_date": "Select date",
+    "search": "Search",
+    "direct_flights": "Direct flights"
   }
 }
-
