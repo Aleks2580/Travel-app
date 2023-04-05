@@ -3,6 +3,8 @@ import { initReactI18next } from "react-i18next";
 import enTranslation from "../src/languages/english/en.json";
 import ruTranslation from "../src/languages/russian/ru.json";
 
+const lng = "English"; // Default language
+
 i18n.use(initReactI18next).init({
   resources: {
     English: {
@@ -12,10 +14,14 @@ i18n.use(initReactI18next).init({
       translation: ruTranslation,
     },
   },
-  lng: "English",
-  fallbackLng: "English",
+  lng: lng,
+  fallbackLng: lng,
   interpolation: {
     escapeValue: false,
+  },
+  react: {
+    bindI18n: "languageChanged",
+    useSuspense: false,
   },
 });
 
