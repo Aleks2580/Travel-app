@@ -21,14 +21,14 @@ export default function SearchHeader() {
         <div className={style.middle_input_first_country}>
           <Input
             className={style.input_first_country}
-            placeholder="Change country"
+            placeholder="Country, city or airport"
           />
           <span className={style.span_first_country}>From:</span>
         </div>
         <div className={style.middle_input_second_country}>
           <Input
             className={style.input_second_country}
-            placeholder="Change country"
+            placeholder="Country, city or airport"
           />
           <span className={style.span_second_country}>To:</span>
         </div>
@@ -41,11 +41,7 @@ export default function SearchHeader() {
           <span className={style.span_second_date}>Return:</span>
         </div>
         <div className={style.middle_input_person}>
-          <Input
-            className={style.middle_person}
-            // placeholder="Change country"
-            readOnly
-          />
+          <Input className={style.middle_person} readOnly />
           <span className={style.span_input_person}>
             Travellers & cabin class:
           </span>
@@ -59,11 +55,10 @@ export default function SearchHeader() {
       <div className={style.middle_checkbox_block}>
         <div className={style.checkbox_style}>
           <Checkbox
-            id={style[theme]}
-            className={style.checkbox_antd}
+            className={`${style[`${theme}_checkbox`]}`}
             onChange={onCheck}
           >
-            Checkbox
+            Direct flights
           </Checkbox>
         </div>
       </div>

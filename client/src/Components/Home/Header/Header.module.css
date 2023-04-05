@@ -9,8 +9,6 @@
   min-height: 32vh;
   width: 72vw;
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   flex-direction: column;
   margin: 0;
   display: flex;
@@ -66,6 +64,7 @@
 }
 
 .user_button {
+  font-family: "Montserrat";
   background: none;
   border: none;
   color: blue;

@@ -9,12 +9,14 @@
 }
 
 .middle_text_block {
+  font-family: "Montserrat", sans-serif;
   display: flex;
   font-size: 2vw;
   margin-bottom: 1vw;
 }
 
 .input_first_country {
+  font-family: "Montserrat", sans-serif;
   width: 16vw;
   height: 7.5vh;
   border-radius: 10px 0px 0px 10px;
@@ -31,6 +33,7 @@
 }
 
 .input_second_country {
+  font-family: "Montserrat", sans-serif;
   width: 16vw;
   height: 7.5vh;
   border-radius: 0px 0px 0px 0px;
@@ -83,12 +86,10 @@
 
 .middle_input_person {
   display: flex;
-  /* align-items: center; */
   margin-right: 1vw;
 }
 
 .persons_value {
-  /* align-items: center; */
   display: flex;
   justify-content: center;
 }
@@ -104,6 +105,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn_search_trips:hover {
@@ -118,15 +120,14 @@
   font-weight: 500;
 }
 
-#light.checkbox_antd {
-  font-size: 5vw !important;
-  color: black !important;
+.light_checkbox {
+  color: black;
+  font-family: "Montserrat", sans-serif;
 }
 
-#dark.checkbox_antd {
-  font-size: 2vw !important;
-  color: white !important;
-  background-color: green;
+.dark_checkbox {
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .span_first_country {
@@ -141,6 +142,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 6vw;
+  font-family: "Montserrat", sans-serif;
 }
 
 .middle_input_first_country {
@@ -159,6 +161,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 6vw;
+  font-family: "Montserrat", sans-serif;
 }
 
 .middle_input_second_country {
@@ -177,6 +180,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 6vw;
+  font-family: "Montserrat", sans-serif;
 }
 
 .span_second_date {
@@ -191,17 +195,21 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 6vw;
+  font-family: "Montserrat", sans-serif;
 }
 
 .middle_input_first_date {
   display: flex;
+  font-family: "Montserrat", sans-serif;
 }
 
 .middle_input_second_date {
   display: flex;
+  font-family: "Montserrat", sans-serif;
 }
 
 .span_input_person {
+  font-family: "Montserrat", sans-serif;
   max-width: 9.5vw;
   position: absolute;
   z-index: 1;
@@ -217,4 +225,5 @@
 
 .middle_input_person {
   display: flex;
+  font-family: "Montserrat", sans-serif;
 }
