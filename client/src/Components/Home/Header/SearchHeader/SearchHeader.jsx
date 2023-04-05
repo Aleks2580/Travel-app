@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import style from "./SearchHeader.module.css";
 import { Input, DatePicker, Button, Checkbox } from "antd";
 import { ThemeContext } from "../../../../App";
+import { useTranslation } from "react-i18next";
 
 export default function SearchHeader() {
+  const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
-  console.log("1", theme);
   const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -16,7 +17,7 @@ export default function SearchHeader() {
 
   return (
     <div className={style.middle_block_search}>
-      <div className={style.middle_text_block}>Find your flight in a flash</div>
+      <div className={style.middle_text_block}>{t("header_search.motto")}</div>
       <div className={style.middle_main_block_search}>
         <div className={style.middle_input_first_country}>
           <Input

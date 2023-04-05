@@ -11,6 +11,17 @@
     "country_region_usa": "United States",
     "country_region_russia": "Russia",
     "button": "Save"
+  },
+  "theme_switch": {
+    "light" : "light",
+    "dark": "dark"
+  },
+  "header": {
+    "login" : "Log in"
+  },
+   "header_search": {
+    "motto" : "Find your flight in a flash",
+    "from" : "From"
   }
 }
 

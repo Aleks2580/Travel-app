@@ -5,6 +5,7 @@ import { GlobalOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { ThemeContext } from "../../../App";
 import ModalHeader from "./ModalHeader/ModalHeader";
+import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 
 export default function Header() {
@@ -37,6 +38,8 @@ export default function Header() {
     setSelectedCountry(value);
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       <div className={style.header_block}>
@@ -68,7 +71,7 @@ export default function Header() {
                   className={style.user_button}
                   icon={<UserOutlined />}
                 >
-                  Log in
+                  {t("header.login")}
                 </Button>
               </div>
               <ModalHeader
