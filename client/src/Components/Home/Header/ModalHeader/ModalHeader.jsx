@@ -21,7 +21,11 @@ export default function ModalHeader({
 
   return (
     <Modal
-      title={<h2 className={style.modal_settings_title}>{t("modal.title")}</h2>}
+      title={
+        <h2 className={style.modal_settings_title}>
+          {t("modal_settings.title")}
+        </h2>
+      }
       open={isModalOpen}
       onOk={handleSave}
       onCancel={handleCancel}
@@ -33,12 +37,12 @@ export default function ModalHeader({
           type="primary"
           onClick={handleSave}
         >
-          Save
+          {t("modal_settings.button")}
         </Button>,
       ]}
     >
       <div className={style.dropdown_menu_settings}>
-        <label htmlFor="language-select">Language:</label>
+        <label htmlFor="language-select">{t("modal_settings.language")}:</label>
         <Select
           className={style.select}
           id="language-select"
@@ -46,30 +50,40 @@ export default function ModalHeader({
           onChange={handleLanguageChange}
           value={selectedLanguage}
         >
-          <Option value="English">English</Option>
-          <Option value="Russian">Russian</Option>
+          <Option value="English">
+            {t("modal_settings.language_english")}
+          </Option>
+          <Option value="Russian">
+            {t("modal_settings.language_russian")}
+          </Option>
         </Select>
 
-        <label htmlFor="currency-select">Currency:</label>
+        <label htmlFor="currency-select">{t("modal_settings.currency")}:</label>
         <Select
           className={style.select}
           id="currency-select"
           defaultValue={selectedCurrency}
           onChange={handleCurrencyChange}
         >
-          <Option value="USD">USD</Option>
-          <Option value="RUB">RUB</Option>
+          <Option value="USD">{t("modal_settings.currency_dollar")}</Option>
+          <Option value="RUB">{t("modal_settings.currency_rub")}</Option>
         </Select>
 
-        <label htmlFor="country-select">Country/Region:</label>
+        <label htmlFor="country-select">
+          {t("modal_settings.country_region")}
+        </label>
         <Select
           className={style.select}
           id="country-select"
           defaultValue={selectedCountry}
           onChange={handleCountryChange}
         >
-          <Option value="United States">United States</Option>
-          <Option value="Russia">Russia</Option>
+          <Option value="United States">
+            {t("modal_settings.country_region_usa")}
+          </Option>
+          <Option value="Russia">
+            {t("modal_settings.country_region_russia")}
+          </Option>
         </Select>
       </div>
     </Modal>

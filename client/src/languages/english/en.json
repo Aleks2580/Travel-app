@@ -1,4 +1,16 @@
 {
-  "modal.title": "Regional settings"
+  "modal_settings": {
+    "title": "Regional settings",
+    "language": "Language",
+    "language_russian": "Russian",
+    "language_english": "English",
+    "currency": "Currency",
+    "currency_dollar": "USD",
+    "currency_rub": "RUB",
+    "country_region": "Country/Region",
+    "country_region_usa": "United States",
+    "country_region_russia": "Russia",
+    "button": "Save"
+  }
 }
 

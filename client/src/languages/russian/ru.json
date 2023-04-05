@@ -1,3 +1,16 @@
+
 {
-  "modal.title": "Настройки региона"
+  "modal_settings": {
+    "title": "Настройки региона",
+    "language": "Язык",
+    "language_russian": "Русский",
+    "langyage_english": "Английский",
+    "currency": "Валюта",
+    "currency_dollar": "Доллар США",
+    "currency_rub": "Рубль",
+    "country_region": "Страна/Регион",
+    "country_region_usa": "США",
+    "country_region_russia": "Россия",
+    "button": "Сохранить"
+  }
 }
