@@ -24,21 +24,20 @@
 
 .modal_settings_button {
   display: inline-block;
-  min-height: 2.25rem;
+  min-height: 36px;
   margin-top: 25px;
-  width: 33vw;
+  width: 100%;
   background-color: #05203c;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 16px;
+  line-height: 24px;
   font-weight: 700;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   vertical-align: middle;
   box-shadow: none;
 }
-
 .modal_settings_button:hover {
   background-color: #05478d !important;
 }
