@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import style from "./SearchHeader.module.css";
-import { Input, DatePicker, Button, Checkbox } from "antd";
+import { Input, DatePicker, Button, Checkbox, Modal, InputNumber } from "antd";
 import { ThemeContext } from "../../../../App";
 import { useTranslation } from "react-i18next";
 import enUS from "antd/es/date-picker/locale/en_US";
@@ -16,6 +16,31 @@ export default function SearchHeader() {
 
   const onCheck = (e) => {
     console.log(`checked = ${e.target.checked}`);
+  };
+
+  const [visible, setVisible] = useState(false);
+  const [cabinClass, setCabinClass] = useState([]);
+  const [numAdults, setNumAdults] = useState(1);
+  const [numChildren, setNumChildren] = useState(0);
+
+  const handleOk = () => {
+    setVisible(false);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  const handleCabinClassChange = (values) => {
+    setCabinClass(values);
+  };
+
+  const handleAdultsChange = (value) => {
+    setNumAdults(value);
+  };
+
+  const handleChildrenChange = (value) => {
+    setNumChildren(value);
   };
 
   return (
@@ -60,12 +85,68 @@ export default function SearchHeader() {
             {t("header_search.return")}:
           </span>
         </div>
-        <div className={style.middle_input_person}>
+        <div
+          className={style.middle_input_person}
+          onClick={() => setVisible(true)}
+        >
           <Input className={style.middle_person} readOnly />
           <span className={style.span_input_person}>
             {t("header_search.travellers")}:
           </span>
         </div>
+        <Modal
+          title="Choose options"
+          visible={visible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          transitionName=""
+          className={style.ant_modal}
+          footer={[
+            <Button key="apply" type="primary" onClick={handleOk}>
+              Apply
+            </Button>,
+          ]}
+        >
+          <div className={style.modal_content}>
+            <div className={style.modal_row}>
+              <span className={style.modal_label}>Choose class</span>
+              <Checkbox.Group
+                options={["Economy", "Business", "First"]}
+                onChange={handleCabinClassChange}
+              />
+            </div>
+            <div className={style.modal_row}>
+              <span className={style.modal_label}>Adults</span>
+              <InputNumber
+                min={1}
+                defaultValue={1}
+                onChange={handleAdultsChange}
+              />
+              <span className={style.modal_label}>Aged 16+</span>
+            </div>
+            <div className={style.modal_row}>
+              <span className={style.modal_label}>Children</span>
+              <InputNumber
+                min={0}
+                defaultValue={0}
+                onChange={handleChildrenChange}
+              />
+              <span className={style.modal_label}>Aged 0 to 15</span>
+            </div>
+            <div className={style.modal_disclaimer}>
+              <p>
+                Your age at time of travel must be valid for the age category
+                booked. Airlines have restrictions on under 18s travelling
+                alone.
+              </p>
+              <p>
+                Age limits and policies for travelling with children may vary so
+                please check with the airline before booking.
+              </p>
+            </div>
+          </div>
+        </Modal>
+
         <div className={style.middle_button_search}>
           <Button className={style.btn_search_trips} type="primary">
             {t("header_search.search")}
