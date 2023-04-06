@@ -95,43 +95,56 @@ export default function SearchHeader() {
           </span>
         </div>
         <Modal
-          title="Choose options"
-          visible={visible}
+          title={<span className={style["modal_title"]}>Choose options</span>}
+          open={visible}
           onOk={handleOk}
           onCancel={handleCancel}
           transitionName=""
           className={style.ant_modal}
           footer={[
-            <Button key="apply" type="primary" onClick={handleOk}>
+            <Button
+              key="apply"
+              type="primary"
+              onClick={handleOk}
+              className={style.modal_travellers_button}
+            >
               Apply
             </Button>,
           ]}
         >
           <div className={style.modal_content}>
-            <div className={style.modal_row}>
-              <span className={style.modal_label}>Choose class</span>
+            <div className={style.modal_row_checkboxes}>
+              <span className={style.modal_label}>Class</span>
               <Checkbox.Group
                 options={["Economy", "Business", "First"]}
                 onChange={handleCabinClassChange}
+                className={style.checkbox_group_item}
+                itemClassName={style.checkbox_group_option}
               />
             </div>
-            <div className={style.modal_row}>
+            <div className={style.modal_row_travellers}>
               <span className={style.modal_label}>Adults</span>
+
               <InputNumber
                 min={1}
                 defaultValue={1}
                 onChange={handleAdultsChange}
+                className={style.input_number}
               />
-              <span className={style.modal_label}>Aged 16+</span>
+
+              <span className={style.modal_label_age}>Aged 16+</span>
             </div>
-            <div className={style.modal_row}>
+            <div className={style.modal_row_travellers}>
               <span className={style.modal_label}>Children</span>
+
               <InputNumber
                 min={0}
                 defaultValue={0}
                 onChange={handleChildrenChange}
+                className={style.input_number}
               />
-              <span className={style.modal_label}>Aged 0 to 15</span>
+
+              <span className={style.modal_label_age}>Aged 0 to 15</span>
             </div>
             <div className={style.modal_disclaimer}>
               <p>
@@ -164,6 +177,5 @@ export default function SearchHeader() {
         </div>
       </div>
     </div>
-    // </ConfigProvider>
   );
 }
