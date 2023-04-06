@@ -30,5 +30,19 @@
     "select_date": "Select date",
     "search": "Search",
     "direct_flights": "Direct flights"
+  },
+  "modal_header_search": {
+    "title": "Choose options",
+    "class": "Class",
+    "adults": "Adults",
+    "children": "Children",
+    "age_adults": "Aged 16+",
+    "age_children": "Aged 0 to 15",
+    "apply_button": "Apply",
+    "disclaimer_1": "Your age at time of travel must be valid for the age category booked. Airlines have restrictions on under 18s travelling alone.",
+    "disclaimer_2": "Age limits and policies for travelling with children may vary so please check with the airline before booking.",
+    "economy": "Economy",
+    "business": "Business",
+    "first": "First"
   }
 }

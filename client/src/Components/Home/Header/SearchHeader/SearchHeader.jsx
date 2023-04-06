@@ -9,6 +9,10 @@ import ruRU from "antd/es/date-picker/locale/ru_RU";
 export default function SearchHeader() {
   const { t, i18n } = useTranslation();
   const { theme } = useContext(ThemeContext);
+  const [visible, setVisible] = useState(false);
+  const [cabinClass, setCabinClass] = useState([]);
+  const [numAdults, setNumAdults] = useState(1);
+  const [numChildren, setNumChildren] = useState(0);
   const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
   const onChange = (date, dateString) => {
     console.log(date, dateString);
@@ -18,10 +22,11 @@ export default function SearchHeader() {
     console.log(`checked = ${e.target.checked}`);
   };
 
-  const [visible, setVisible] = useState(false);
-  const [cabinClass, setCabinClass] = useState([]);
-  const [numAdults, setNumAdults] = useState(1);
-  const [numChildren, setNumChildren] = useState(0);
+  const options = [
+    { label: t("modal_header_search.economy"), value: "economy" },
+    { label: t("modal_header_search.business"), value: "business" },
+    { label: t("modal_header_search.first"), value: "first" },
+  ];
 
   const handleOk = () => {
     setVisible(false);
@@ -95,7 +100,11 @@ export default function SearchHeader() {
           </span>
         </div>
         <Modal
-          title={<span className={style["modal_title"]}>Choose options</span>}
+          title={
+            <span className={style["modal_title"]}>
+              {t("modal_header_search.title")}
+            </span>
+          }
           open={visible}
           onOk={handleOk}
           onCancel={handleCancel}
@@ -108,22 +117,27 @@ export default function SearchHeader() {
               onClick={handleOk}
               className={style.modal_travellers_button}
             >
-              Apply
+              {t("modal_header_search.apply_button")}
             </Button>,
           ]}
         >
           <div className={style.modal_content}>
             <div className={style.modal_row_checkboxes}>
-              <span className={style.modal_label}>Class</span>
-              <Checkbox.Group
-                options={["Economy", "Business", "First"]}
-                onChange={handleCabinClassChange}
-                className={style.checkbox_group_item}
-                itemClassName={style.checkbox_group_option}
-              />
+              <span className={style.modal_label}>
+                {t("modal_header_search.class")}
+              </span>
+              <div className={style.checkboxes}>
+                <Checkbox.Group
+                  options={options}
+                  onChange={handleCabinClassChange}
+                  className={style.checkbox_group_item}
+                />
+              </div>
             </div>
             <div className={style.modal_row_travellers}>
-              <span className={style.modal_label}>Adults</span>
+              <span className={style.modal_label}>
+                {t("modal_header_search.adults")}
+              </span>
 
               <InputNumber
                 min={1}
@@ -132,10 +146,14 @@ export default function SearchHeader() {
                 className={style.input_number}
               />
 
-              <span className={style.modal_label_age}>Aged 16+</span>
+              <span className={style.modal_label_age}>
+                {t("modal_header_search.age_adults")}
+              </span>
             </div>
             <div className={style.modal_row_travellers}>
-              <span className={style.modal_label}>Children</span>
+              <span className={style.modal_label}>
+                {t("modal_header_search.children")}
+              </span>
 
               <InputNumber
                 min={0}
@@ -144,18 +162,13 @@ export default function SearchHeader() {
                 className={style.input_number}
               />
 
-              <span className={style.modal_label_age}>Aged 0 to 15</span>
+              <span className={style.modal_label_age}>
+                {t("modal_header_search.age_children")}
+              </span>
             </div>
             <div className={style.modal_disclaimer}>
-              <p>
-                Your age at time of travel must be valid for the age category
-                booked. Airlines have restrictions on under 18s travelling
-                alone.
-              </p>
-              <p>
-                Age limits and policies for travelling with children may vary so
-                please check with the airline before booking.
-              </p>
+              <p>{t("modal_header_search.disclaimer_1")}</p>
+              <p>{t("modal_header_search.disclaimer_2")}</p>
             </div>
           </div>
         </Modal>
