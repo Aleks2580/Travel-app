@@ -42,14 +42,14 @@ export default function Header() {
 
   return (
     <>
-      <div className={style.header_block}>
+      <div id={style[theme]} className={style.header_block}>
         <div className={style.main_block}>
           <div className={style.main_center_block}>
             <div className={style.left_block}>
               <div className={style.logo}>
                 <img
                   className={style.img_logo}
-                  src="./img/logo/logo.png"
+                  src="./img/logo/logo3.png"
                   alt="logo_jetsearch"
                 />
                 <div className={style.text_logo}>JetSearch</div>
@@ -62,14 +62,14 @@ export default function Header() {
                   id={style[theme]}
                   className={style.world_button}
                   type="primary"
-                  icon={<GlobalOutlined />}
+                  icon={<GlobalOutlined className={style.icon_bold} />}
                 />
               </div>
               <div className={style.user_block}>
                 <Button
                   id={style[theme]}
                   className={style.user_button}
-                  icon={<UserOutlined />}
+                  icon={<UserOutlined className={style.icon_bold} />}
                 >
                   {t("header.login")}
                 </Button>
@@ -90,7 +90,7 @@ export default function Header() {
                   id={style[theme]}
                   className={style.menu_button}
                   type="primary"
-                  icon={<MenuOutlined />}
+                  icon={<MenuOutlined className={style.icon_bold} />}
                 />
               </div>
             </div>

@@ -1,18 +1,20 @@
 .middle_block_search {
   display: flex;
   flex-direction: column;
+  margin-bottom: 3vw;
 }
 
 .middle_main_block_search {
   display: flex;
   margin-bottom: 1vw;
+  margin-top: 2vw;
 }
 
 .middle_text_block {
   font-family: "Montserrat", sans-serif;
   display: flex;
   font-size: 2vw;
-  margin-bottom: 1vw;
+  margin-top: 2vw;
 }
 
 .input_first_country {
@@ -127,11 +129,13 @@
 .light_checkbox {
   color: black;
   font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .dark_checkbox {
   color: white;
   font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .span_first_country {
@@ -235,7 +239,7 @@
 .ant_modal {
   max-width: 20vw;
   position: absolute !important;
-  top: 31%;
+  top: 35%;
   left: 63% !important;
   z-index: 9999 !important;
   font-family: "Montserrat", sans-serif;

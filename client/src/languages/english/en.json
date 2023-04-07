@@ -44,5 +44,13 @@
     "economy": "Economy",
     "business": "Business",
     "first": "First"
+  },
+  "body_card": {
+    "hotels": "Hotels",
+    "hotels_description": "Find the perfect hotel for your next trip.",
+    "car_hire": "Car Hire",
+    "car_hire_description": "Rent a car and explore the city at your own pace.",
+    "explore": "Explore Everywhere",
+    "explore_description": "Discover new destinations."
   }
 }

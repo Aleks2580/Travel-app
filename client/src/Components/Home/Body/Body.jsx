@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, Row, Col } from "antd";
 import style from "./Body.module.css";
+import { useTranslation } from "react-i18next";
 
 export default function Body() {
+  const { t } = useTranslation();
   return (
     <div className={style.body_block}>
       <div className={style.main_block}>
@@ -10,27 +12,27 @@ export default function Body() {
           <Col xs={24} sm={12} md={8} lg={8} xl={8}>
             <Card className={style.card}>
               <img src="/img/hotel.jpg" alt="Hotel" />
-              <div className={style.card_title}>Hotels</div>
+              <div className={style.card_title}> {t("body_card.hotels")}</div>
               <div className={style.card_description}>
-                Find the perfect hotel for your next trip.
+                {t("body_card.hotels_description")}
               </div>
             </Card>
           </Col>
           <Col xs={24} sm={12} md={8} lg={8} xl={8}>
             <Card className={style.card}>
               <img src="/img/car-hire.jpg" alt="Car Hire" />
-              <div className={style.card_title}>Car Hire</div>
+              <div className={style.card_title}>{t("body_card.car_hire")}</div>
               <div className={style.card_description}>
-                Rent a car and explore the city at your own pace.
+                {t("body_card.car_hire_description")}
               </div>
             </Card>
           </Col>
           <Col xs={24} sm={12} md={8} lg={8} xl={8}>
             <Card className={style.card}>
               <img src="/img//explore.jpg" alt="Explore" />
-              <div className={style.card_title}>Explore Everywhere</div>
+              <div className={style.card_title}>{t("body_card.explore")}</div>
               <div className={style.card_description}>
-                Discover new destinations.
+                {t("body_card.explore_description")}
               </div>
             </Card>
           </Col>
