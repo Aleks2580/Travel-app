@@ -1,8 +1,15 @@
 import React, { useContext, useState } from "react";
 import SearchHeader from "./SearchHeader/SearchHeader";
 import style from "./Header.module.css";
-import { GlobalOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import {
+  GlobalOutlined,
+  MenuOutlined,
+  UserOutlined,
+  HomeOutlined,
+  CarOutlined,
+  EnvironmentOutlined,
+} from "@ant-design/icons";
+import { Button, Popover, Menu } from "antd";
 import { ThemeContext } from "../../../App";
 import ModalHeader from "./ModalHeader/ModalHeader";
 import { useTranslation } from "react-i18next";
@@ -39,6 +46,32 @@ export default function Header() {
   };
 
   const { t } = useTranslation();
+
+  const menu = (
+    <Menu className={style.menu}>
+      <Menu.Item
+        key="hotels"
+        className={style.menu_item}
+        icon={<HomeOutlined />}
+      >
+        Hotels
+      </Menu.Item>
+      <Menu.Item
+        key="car-hire"
+        className={style.menu_item}
+        icon={<CarOutlined />}
+      >
+        Car Hire
+      </Menu.Item>
+      <Menu.Item
+        key="explore"
+        className={style.menu_item}
+        icon={<EnvironmentOutlined />}
+      >
+        Explore
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <>
@@ -86,12 +119,19 @@ export default function Header() {
                 selectedCountry={selectedCountry}
               ></ModalHeader>
               <div className={style.icon_menu}>
-                <Button
-                  id={style[theme]}
-                  className={style.menu_button}
-                  type="primary"
-                  icon={<MenuOutlined className={style.icon_bold} />}
-                />
+                <Popover
+                  placement="bottomRight"
+                  content={menu}
+                  trigger="click"
+                  className={style.popover}
+                >
+                  <Button
+                    id={style[theme]}
+                    className={style.menu_button}
+                    type="primary"
+                    icon={<MenuOutlined className={style.icon_bold} />}
+                  />
+                </Popover>
               </div>
             </div>
           </div>
