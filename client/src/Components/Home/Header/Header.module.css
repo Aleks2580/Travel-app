@@ -2,9 +2,24 @@
   display: flex;
   justify-content: center;
   width: 100vw;
-  background-color: rgb(75, 75, 155);
+  font-weight: 600;
 }
 
+#dark.header_block {
+  background-color: #212121;
+  /* background-color: #1e1e1e; */
+  /* background-color: #ff6347; */
+  /* background-color: #9400d3; */
+  /* background-color: #141414; */
+}
+
+#light.header_block {
+  background-color: #eceff4;
+  /* background-color: #00bfff; */
+  /* background-color: #f5f5f5; */
+  /* background-color: #ececec; */
+  /* background-color: #f3f3f3; */
+}
 .main_block {
   min-height: 32vh;
   width: 72vw;
@@ -12,24 +27,28 @@
   flex-direction: column;
   margin: 0;
   display: flex;
-  margin-top: 2.5vw;
+  margin-top: 1.5vw;
 }
 
 .img_logo {
-  height: 4.5vh;
-  width: 3vw;
+  height: 10vh;
 }
 
 .text_logo {
   font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .logo {
   display: flex;
+  align-items: center;
 }
 
 .right_block {
   display: flex;
+  justify-content: center;
 }
 
 .user_block {
@@ -40,7 +59,8 @@
   display: flex;
   width: 72vw;
   justify-content: space-between;
-  margin-bottom: 3.5vw;
+  align-items: center;
+  margin-bottom: 0.5vw;
 }
 
 .world_button {
@@ -79,12 +99,11 @@
 }
 
 .icon_world {
-  width: 2vw;
-  margin-right: 0.5vw;
+  /* width: 2vw; */
 }
 
 .user_block {
-  width: 7vw;
+  width: 5.5vw;
 }
 
 .icon_menu {
@@ -155,4 +174,8 @@
   border: 1px rgb(255, 255, 255) solid !important;
   color: rgb(255, 255, 255) !important;
   background-color: transparent !important;
+}
+
+.icon_user {
+  font-weight: bold;
 }
