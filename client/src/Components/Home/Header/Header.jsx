@@ -18,7 +18,9 @@ import i18n from "i18next";
 export default function Header() {
   const { theme } = useContext(ThemeContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("language") || "English"
+  );
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const [selectedCountry, setSelectedCountry] = useState("United States");
 
@@ -26,6 +28,7 @@ export default function Header() {
     setIsModalOpen(true);
   };
   const handleSave = () => {
+    localStorage.setItem("language", selectedLanguage);
     setIsModalOpen(false);
   };
   const handleCancel = () => {
@@ -35,6 +38,7 @@ export default function Header() {
   const handleLanguageChange = (value) => {
     setSelectedLanguage(value);
     i18n.changeLanguage(value);
+
   };
 
   const handleCurrencyChange = (value) => {
@@ -54,21 +58,21 @@ export default function Header() {
         className={style.menu_item}
         icon={<HomeOutlined />}
       >
-        Hotels
+        {t("header_menu.hotels")}
       </Menu.Item>
       <Menu.Item
         key="car-hire"
         className={style.menu_item}
         icon={<CarOutlined />}
       >
-        Car Hire
+        {t("header_menu.car_hire")}
       </Menu.Item>
       <Menu.Item
         key="explore"
         className={style.menu_item}
         icon={<EnvironmentOutlined />}
       >
-        Explore
+        {t("header_menu.explore")}
       </Menu.Item>
     </Menu>
   );

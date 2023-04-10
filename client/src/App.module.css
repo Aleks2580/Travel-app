@@ -32,3 +32,11 @@
 .ant-checkbox-wrapper {
   font-size: 50px !important;
 }
+
+.skeleton {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  margin-top: 0.5vw;
+  margin-right: 0.6vw;
+}
