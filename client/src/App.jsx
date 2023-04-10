@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import { createContext } from "react";
 import { useState, useEffect } from "react";
-import { Switch, Skeleton } from "antd";
+import { Switch } from "antd";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 
@@ -33,22 +33,16 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className={style.app_main} id={style[theme]}>
-        {isLoading ? (
-          <Skeleton active />
-        ) : (
-          <>
-            <Switch
-              onChange={toggleTheme}
-              className={style.switch}
-              checkedChildren={t("theme_switch.light")}
-              unCheckedChildren={t("theme_switch.dark")}
-              checked={theme === "dark"}
-            />
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </>
-        )}
+        <Switch
+          onChange={toggleTheme}
+          className={style.switch}
+          checkedChildren={t("theme_switch.light")}
+          unCheckedChildren={t("theme_switch.dark")}
+          checked={theme === "dark"}
+        />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
       </div>
     </ThemeContext.Provider>
   );
