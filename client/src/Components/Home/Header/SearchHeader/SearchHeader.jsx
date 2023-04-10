@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import style from "./SearchHeader.module.css";
 import { Input, DatePicker, Button, Checkbox, Modal, InputNumber } from "antd";
 import { ThemeContext } from "../../../../App";
@@ -14,6 +14,7 @@ export default function SearchHeader() {
   const [numAdults, setNumAdults] = useState(1);
   const [numChildren, setNumChildren] = useState(0);
   const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
+
   const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
