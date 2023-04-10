@@ -65,7 +65,7 @@ export default function SearchHeader() {
   return (
     <div className={style.middle_block_search}>
       {isLoading ? (
-        <div className={style.middle_main_block_search}>
+        <div className={`${style.middle_main_block_search} ${style.skeleton}`}>
           <Skeleton active paragraph={{ rows: 2 }} />
         </div>
       ) : (
