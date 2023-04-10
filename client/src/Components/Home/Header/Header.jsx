@@ -18,7 +18,9 @@ import i18n from "i18next";
 export default function Header() {
   const { theme } = useContext(ThemeContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("language") || "English"
+  );
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const [selectedCountry, setSelectedCountry] = useState("United States");
 
@@ -26,6 +28,7 @@ export default function Header() {
     setIsModalOpen(true);
   };
   const handleSave = () => {
+    localStorage.setItem("language", selectedLanguage);
     setIsModalOpen(false);
   };
   const handleCancel = () => {
@@ -35,6 +38,7 @@ export default function Header() {
   const handleLanguageChange = (value) => {
     setSelectedLanguage(value);
     i18n.changeLanguage(value);
+
   };
 
   const handleCurrencyChange = (value) => {
