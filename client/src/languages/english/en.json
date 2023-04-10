@@ -52,5 +52,10 @@
     "car_hire_description": "Rent a car and explore the city at your own pace.",
     "explore": "Explore Everywhere",
     "explore_description": "Discover new destinations."
+  },
+  "header_menu": {
+    "hotels": "Hotels",
+    "car_hire": "Car Hire",
+    "explore": "Explore"
   }
 }

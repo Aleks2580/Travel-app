@@ -54,21 +54,21 @@ export default function Header() {
         className={style.menu_item}
         icon={<HomeOutlined />}
       >
-        Hotels
+        {t("header_menu.hotels")}
       </Menu.Item>
       <Menu.Item
         key="car-hire"
         className={style.menu_item}
         icon={<CarOutlined />}
       >
-        Car Hire
+        {t("header_menu.car_hire")}
       </Menu.Item>
       <Menu.Item
         key="explore"
         className={style.menu_item}
         icon={<EnvironmentOutlined />}
       >
-        Explore
+        {t("header_menu.explore")}
       </Menu.Item>
     </Menu>
   );
