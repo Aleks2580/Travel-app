@@ -12,7 +12,6 @@ export const ThemeContext = createContext(null);
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  const [isLoading, setIsLoading] = useState(true);
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -25,9 +24,7 @@ function App() {
     if (savedTheme) {
       setTheme(savedTheme);
     }
-    i18n.changeLanguage(localStorage.getItem("language")).then(() => {
-      setIsLoading(false);
-    });
+    i18n.changeLanguage(localStorage.getItem("language"));
   }, []);
 
   return (

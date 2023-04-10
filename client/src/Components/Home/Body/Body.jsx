@@ -9,10 +9,6 @@ export default function Body() {
 
   useEffect(() => {
     setIsLoading(false);
-    // // Simulate an API request or some asynchronous operation
-    //    setTimeout(() => {
-    //   setIsLoading(false);
-    // }, 2000);
   }, []);
   return (
     <div className={style.body_block}>
