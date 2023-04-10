@@ -200,3 +200,9 @@
 .menu_item:hover {
   background-color: #f7f7f7;
 }
+
+.skeleton {
+  width: 100%;
+  margin-bottom: 0.5vw;
+  margin-top: 50px;
+}

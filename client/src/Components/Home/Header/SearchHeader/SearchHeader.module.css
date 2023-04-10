@@ -317,3 +317,7 @@
 .modal_travellers_button:hover {
   background-color: #05478d !important;
 }
+
+.skeleton {
+  margin-bottom: 70px;
+}

@@ -30,8 +30,8 @@
 
 .card img {
   width: 100%;
-  height: 18vh;
-  object-fit: cover;
+  height: 20vh;
+  /* object-fit: cover; */
 }
 
 .card_title {
@@ -44,5 +44,5 @@
   height: 5vh;
   font-size: 14px;
   color: #666;
-  margin: 0 16px 16px;
+  margin: 0 16px 1px;
 }
