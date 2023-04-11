@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import SearchHeader from "./SearchHeader/SearchHeader";
 import style from "./Header.module.css";
 import {
@@ -111,7 +112,9 @@ export default function Header() {
                     icon={<GlobalOutlined className={style.icon_bold} />}
                   />
                 </div>
+
                 <div className={style.user_block}>
+                  {/* <Link to="/login"> */}
                   <Button
                     id={style[theme]}
                     className={style.user_button}
@@ -119,7 +122,9 @@ export default function Header() {
                   >
                     {t("header.login")}
                   </Button>
+                  {/* </Link> */}
                 </div>
+
                 <ModalHeader
                   isModalOpen={isModalOpen}
                   handleSave={handleSave}

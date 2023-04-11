@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { Switch, Skeleton } from "antd";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
+import Login from "./Components/Home/Login/Login";
 
 export const ThemeContext = createContext(null);
 
@@ -48,6 +49,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </ThemeContext.Provider>
