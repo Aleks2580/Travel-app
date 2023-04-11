@@ -17,14 +17,24 @@
   margin-top: 2vw;
 }
 
-.input_first_country {
+:global(
+    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector
+  ) {
   font-family: "Montserrat", sans-serif;
   width: 16vw;
   height: 7.5vh;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 0px 0px 0px 0px !important;
   margin-right: 0.25vw;
   padding-top: 20px;
 }
+/* .input_first_country {
+  font-family: "Montserrat", sans-serif;
+  width: 16vw;
+  height: 7.5vh;
+  border-radius: 10px 0px 0px 10px !important;
+  margin-right: 0.25vw;
+  padding-top: 20px;
+} */
 
 .middle_person {
   width: 11vw;
@@ -34,14 +44,14 @@
   padding-top: 20px;
 }
 
-.input_second_country {
+/* .input_second_country {
   font-family: "Montserrat", sans-serif;
   width: 16vw;
   height: 7.5vh;
   border-radius: 0px 0px 0px 0px;
   margin-right: 0.25vw;
   padding-top: 20px;
-}
+} */
 
 .first_date {
   width: 10.5vw;

@@ -8,6 +8,7 @@ import {
   Modal,
   InputNumber,
   Skeleton,
+  AutoComplete,
 } from "antd";
 import { ThemeContext } from "../../../../App";
 import { useTranslation } from "react-i18next";
@@ -26,6 +27,17 @@ export default function SearchHeader() {
 
   const [results, setResults] = useState([]);
   const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
+
+  const handleFromAutocomplete = async (from) => {
+    console.log(`Input value: ${from}`);
+    setTerm(from);
+    const response = await fetch(
+      `http://localhost:5000/autocomplete?term=${from}`
+    );
+    const data = await response.json();
+    console.log(`Autocomplete data: ${JSON.stringify(data)}`);
+    setResults(data);
+  };
 
   useEffect(() => {
     setIsLoading(false);
@@ -78,35 +90,19 @@ export default function SearchHeader() {
           </div>
           <div className={style.middle_main_block_search}>
             <div className={style.middle_input_first_country}>
-              <Input
+              <AutoComplete
                 className={style.input_first_country}
+                options={Array.isArray(results) ? results : []}
                 placeholder={t("header_search.country_city")}
                 value={term}
-                onChange={async (event) => {
-                  const value = event.target.value;
-                  console.log(`Input value: ${value}`);
-                  setTerm(value);
-                  const response = await fetch(
-                    `http://localhost:5000/autocomplete?term=${value}`
-                  );
-                  const data = await response.json();
-                  console.log(`Autocomplete data: ${JSON.stringify(data)}`);
-                  setResults(data);
-                }}
+                onChange={handleFromAutocomplete}
               />
               <span className={style.span_first_country}>
                 {t("header_search.from")}:
               </span>
-              {results.length > 0 && (
-                <ul>
-                  {results.map((result) => (
-                    <li key={result.value}>{result.label}</li>
-                  ))}
-                </ul>
-              )}
             </div>
             <div className={style.middle_input_second_country}>
-              <Input
+              <AutoComplete
                 className={style.input_second_country}
                 placeholder={t("header_search.country_city")}
               />
@@ -121,7 +117,7 @@ export default function SearchHeader() {
                 locale={antdLocale}
               />
               <span className={style.span_first_date}>
-                {t("header_search.depart")}:
+                {t("header_search.depart")}
               </span>
             </div>
             <div className={style.middle_input_second_date}>

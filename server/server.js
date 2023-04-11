@@ -20,7 +20,7 @@ app.get("/autocomplete", async (req, res) => {
   try {
     const response = await amadeus.referenceData.locations.get({
       keyword: term,
-      //subType: Amadeus.location.any,
+      subType: Amadeus.location.any,
     });
     const locations = response.data.map((location) => ({
       label: `${location.name} (${location.iataCode})`,
