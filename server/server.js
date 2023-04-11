@@ -24,9 +24,10 @@ app.get("/autocomplete", async (req, res) => {
     });
     const locations = response.data.map((location) => ({
       label: `${location.name} (${location.iataCode})`,
-      value: location.iataCode,
-      key: location.name,
+      value: `${location.name} (${location.iataCode})`,
+      key: location.id
     }));
+    console.log('asfasf', locations[0])
     console.log(`Locations: ${JSON.stringify(locations)}`);
     res.json(locations);
   } catch (error) {
