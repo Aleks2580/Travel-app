@@ -8,6 +8,7 @@ import {
   Modal,
   InputNumber,
   Skeleton,
+  AutoComplete,
 } from "antd";
 import { ThemeContext } from "../../../../App";
 import { useTranslation } from "react-i18next";
@@ -22,7 +23,21 @@ export default function SearchHeader() {
   const [numAdults, setNumAdults] = useState(1);
   const [numChildren, setNumChildren] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [term, setTerm] = useState("");
+
+  const [results, setResults] = useState([]);
   const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
+
+  const handleFromAutocomplete = async (from) => {
+    console.log(`Input value: ${from}`);
+    setTerm(from);
+    const response = await fetch(
+      `http://localhost:5000/autocomplete?term=${from}`
+    );
+    const data = await response.json();
+    console.log(`Autocomplete data: ${JSON.stringify(data)}`);
+    setResults(data);
+  };
 
   useEffect(() => {
     setIsLoading(false);
@@ -75,16 +90,19 @@ export default function SearchHeader() {
           </div>
           <div className={style.middle_main_block_search}>
             <div className={style.middle_input_first_country}>
-              <Input
+              <AutoComplete
                 className={style.input_first_country}
+                options={Array.isArray(results) ? results : []}
                 placeholder={t("header_search.country_city")}
+                value={term}
+                onChange={handleFromAutocomplete}
               />
               <span className={style.span_first_country}>
                 {t("header_search.from")}:
               </span>
             </div>
             <div className={style.middle_input_second_country}>
-              <Input
+              <AutoComplete
                 className={style.input_second_country}
                 placeholder={t("header_search.country_city")}
               />
@@ -99,7 +117,7 @@ export default function SearchHeader() {
                 locale={antdLocale}
               />
               <span className={style.span_first_date}>
-                {t("header_search.depart")}:
+                {t("header_search.depart")}
               </span>
             </div>
             <div className={style.middle_input_second_date}>
