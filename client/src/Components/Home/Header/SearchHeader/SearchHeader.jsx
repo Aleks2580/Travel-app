@@ -38,6 +38,7 @@ export default function SearchHeader() {
     console.log(`Autocomplete data: ${JSON.stringify(data)}`);
     setResults(data);
   };
+  console.log(results);
 
   useEffect(() => {
     setIsLoading(false);
@@ -91,7 +92,7 @@ export default function SearchHeader() {
           <div className={style.middle_main_block_search}>
             <div className={style.middle_input_first_country}>
               <AutoComplete
-                className={style.input_first_country}
+                className={`${style.input_first_country} auto-complete`}
                 options={Array.isArray(results) ? results : []}
                 placeholder={t("header_search.country_city")}
                 value={term}

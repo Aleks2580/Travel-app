@@ -30,24 +30,48 @@
 }
 
 .input_second_country:global(
-  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector
-) {
-font-family: "Montserrat", sans-serif;
-width: 16vw;
-height: 7.5vh;
-border-radius: 0px 0px 0px 0px !important;
-margin-right: 0.25vw;
-/* padding-top: 20px; */
-padding: 30px 0px 0px 10px;
+    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector
+  ) {
+  font-family: "Montserrat", sans-serif;
+  width: 16vw;
+  height: 7.5vh;
+  border-radius: 0px 0px 0px 0px !important;
+  margin-right: 0.25vw;
+  /* padding-top: 20px; */
+  padding: 30px 0px 0px 10px;
 }
 
-.input_first_country:global(.ant-select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input) {
-    margin-top: 30px;
-  }
+.input_first_country:global(
+    .ant-select:not(.ant-select-customize-input)
+      .ant-select-selector
+      .ant-select-selection-search-input
+  ) {
+  margin-top: 30px;
+}
 
-  .input_second_country:global(.ant-select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input) {
-    margin-top: 30px;
-  }
+.input_second_country:global(
+    .ant-select:not(.ant-select-customize-input)
+      .ant-select-selector
+      .ant-select-selection-search-input
+  ) {
+  margin-top: 30px;
+}
+
+.input_first_country:global(
+    .ant-select:not(.ant-select-customize-input)
+      .ant-select-selector
+      .ant-select-selection-search-input
+  ) {
+  margin-top: 30px;
+}
+
+.input_second_country:global(
+    .ant-select:not(.ant-select-customize-input)
+      .ant-select-selector
+      .ant-select-selection-search-input
+  ) {
+  margin-top: 30px;
+}
 
 /* .input_first_country {
   font-family: "Montserrat", sans-serif;
