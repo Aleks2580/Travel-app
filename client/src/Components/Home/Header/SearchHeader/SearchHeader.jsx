@@ -32,7 +32,7 @@ export default function SearchHeader() {
     console.log(`Input value: ${from}`);
     setTerm(from);
     const response = await fetch(
-      `http://localhost:5000/autocomplete?term=${from}`
+      `http://localhost:5555/autocomplete?term=${from}`
     );
     const data = await response.json();
     console.log(`Autocomplete data: ${JSON.stringify(data)}`);
