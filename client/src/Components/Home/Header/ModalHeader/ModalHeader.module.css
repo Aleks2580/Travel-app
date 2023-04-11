@@ -41,3 +41,7 @@
 .modal_settings_button:hover {
   background-color: #05478d !important;
 }
+
+.select {
+  /* width: 40vw !important; */
+}
