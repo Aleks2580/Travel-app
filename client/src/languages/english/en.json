@@ -1,0 +1,61 @@
+{
+  "modal_settings": {
+    "title": "Regional settings",
+    "language": "Language",
+    "language_russian": "Russian",
+    "language_english": "English",
+    "currency": "Currency",
+    "currency_dollar": "USD",
+    "currency_rub": "RUB",
+    "country_region": "Country/Region",
+    "country_region_usa": "United States",
+    "country_region_russia": "Russia",
+    "button": "Save"
+  },
+  "theme_switch": {
+    "light": "light",
+    "dark": "dark"
+  },
+  "header": {
+    "login": "Log in"
+  },
+  "header_search": {
+    "motto": "Find your flight in a flash",
+    "from": "From",
+    "country_city": "Country, city or airport",
+    "to": "To",
+    "depart": "Depart",
+    "return": "Return",
+    "travellers": "Travellers & cabin class",
+    "select_date": "Select date",
+    "search": "Search",
+    "direct_flights": "Direct flights"
+  },
+  "modal_header_search": {
+    "title": "Choose options",
+    "class": "Class",
+    "adults": "Adults",
+    "children": "Children",
+    "age_adults": "Aged 16+",
+    "age_children": "Aged 0 to 15",
+    "apply_button": "Apply",
+    "disclaimer_1": "Your age at time of travel must be valid for the age category booked. Airlines have restrictions on under 18s travelling alone.",
+    "disclaimer_2": "Age limits and policies for travelling with children may vary so please check with the airline before booking.",
+    "economy": "Economy",
+    "business": "Business",
+    "first": "First"
+  },
+  "body_card": {
+    "hotels": "Hotels",
+    "hotels_description": "Find the perfect hotel for your next trip.",
+    "car_hire": "Car Hire",
+    "car_hire_description": "Rent a car and explore the city at your own pace.",
+    "explore": "Explore Everywhere",
+    "explore_description": "Discover new destinations."
+  },
+  "header_menu": {
+    "hotels": "Hotels",
+    "car_hire": "Car Hire",
+    "explore": "Explore"
+  }
+}

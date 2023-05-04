@@ -1,0 +1,208 @@
+.header_block {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  font-weight: 600;
+}
+
+#dark.header_block {
+  background-color: #212121;
+}
+
+#light.header_block {
+  background-color: #eceff4;
+}
+.main_block {
+  min-height: 32vh;
+  width: 72vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  display: flex;
+  margin-top: 1.5vw;
+}
+
+.img_logo {
+  height: 10vh;
+}
+
+.text_logo {
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.right_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_center_block {
+  display: flex;
+  width: 72vw;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5vw;
+}
+
+.world_button {
+  background: none;
+  border: none;
+  color: blue;
+  box-shadow: none;
+}
+
+.menu_button {
+  position: relative;
+  background: none;
+  box-shadow: none;
+  color: blue;
+}
+
+.menu_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(0, 13, 255) solid !important;
+  color: rgb(0, 162, 255) !important;
+  background-color: transparent !important;
+}
+
+.user_button {
+  font-family: "Montserrat";
+  background: none;
+  border: none;
+  color: blue;
+  box-shadow: none;
+}
+
+.user_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(0, 13, 255) solid !important;
+  color: rgb(0, 162, 255) !important;
+}
+
+.user_block {
+  width: 5.5vw;
+}
+
+.login_link {
+  margin-top: 0px;
+}
+
+.icon_menu {
+  width: 2vw;
+}
+
+#light.world_button {
+  color: rgb(0, 0, 0) !important;
+}
+
+#dark.world_button {
+  color: rgb(255, 255, 255) !important;
+}
+
+#light.world_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(0, 0, 0) solid !important;
+  color: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
+}
+
+#dark.world_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(255, 255, 255) solid !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
+}
+
+#light.user_button {
+  color: rgb(0, 0, 0) !important;
+}
+
+#dark.user_button {
+  color: rgb(255, 255, 255) !important;
+}
+
+#light.user_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(0, 0, 0) solid !important;
+  color: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
+}
+
+#dark.user_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(255, 255, 255) solid !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
+}
+
+#light.menu_button {
+  color: rgb(0, 0, 0) !important;
+}
+
+#dark.menu_button {
+  color: rgb(255, 255, 255) !important;
+}
+
+#light.menu_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(0, 0, 0) solid !important;
+  color: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
+}
+
+#dark.menu_button:hover {
+  border-radius: 5px;
+  border: 1px rgb(255, 255, 255) solid !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
+}
+
+.icon_user {
+  font-weight: bold;
+}
+.menu {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-inline-end: none !important;
+}
+
+.menu_item:hover {
+  background-color: #f7f7f7;
+}
+
+.skeleton {
+  width: 100%;
+  margin-bottom: 0.5vw;
+  margin-top: 50px;
+}
