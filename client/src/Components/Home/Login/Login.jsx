@@ -76,20 +76,35 @@ const Login = () => {
             <div className={styles.social_login_container}>
               <div className={styles.or}>or continue with:</div>
               <Button className={styles.social_login_button}>
-                <GoogleOutlined
+                {/* <GoogleOutlined
                   className={`${styles.social_login_icon} ${styles.google_icon}`}
+                /> */}
+                <img
+                  src="./img/icons/google.png"
+                  alt="Google"
+                  className={styles.social_login_icon}
                 />
                 Google
               </Button>
               <Button className={styles.social_login_button}>
-                <AppleFilled
+                {/* <AppleFilled
                   className={`${styles.social_login_icon} ${styles.apple_icon}`}
+                /> */}
+                <img
+                  src="./img/icons/apple-logo.png"
+                  alt="Apple"
+                  className={styles.social_login_icon}
                 />
                 Apple
               </Button>
               <Button className={styles.social_login_button}>
-                <FacebookOutlined
+                {/* <FacebookOutlined
                   className={`${styles.social_login_icon} ${styles.facebook_icon}`}
+                /> */}
+                <img
+                  src="./img/icons/facebook.png"
+                  alt="Google"
+                  className={styles.social_login_icon}
                 />
                 Facebook
               </Button>
