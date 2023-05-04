@@ -114,15 +114,15 @@ export default function Header() {
                 </div>
 
                 <div className={style.user_block}>
-                  {/* <Link to="/login"> */}
-                  <Button
-                    id={style[theme]}
-                    className={style.user_button}
-                    icon={<UserOutlined className={style.icon_bold} />}
-                  >
-                    {t("header.login")}
-                  </Button>
-                  {/* </Link> */}
+                  <Link to="/login" className={style.login_link}>
+                    <Button
+                      id={style[theme]}
+                      className={style.user_button}
+                      icon={<UserOutlined className={style.icon_bold} />}
+                    >
+                      {t("header.login")}
+                    </Button>
+                  </Link>
                 </div>
 
                 <ModalHeader
