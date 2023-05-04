@@ -1,12 +1,6 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
-import {
-  UserOutlined,
-  LockOutlined,
-  AppleFilled,
-  FacebookOutlined,
-  GoogleOutlined,
-} from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import styles from "./Login.module.css";
 
 const Login = () => {
@@ -76,9 +70,6 @@ const Login = () => {
             <div className={styles.social_login_container}>
               <div className={styles.or}>or continue with:</div>
               <Button className={styles.social_login_button}>
-                {/* <GoogleOutlined
-                  className={`${styles.social_login_icon} ${styles.google_icon}`}
-                /> */}
                 <img
                   src="./img/icons/google.png"
                   alt="Google"
@@ -87,9 +78,6 @@ const Login = () => {
                 Google
               </Button>
               <Button className={styles.social_login_button}>
-                {/* <AppleFilled
-                  className={`${styles.social_login_icon} ${styles.apple_icon}`}
-                /> */}
                 <img
                   src="./img/icons/apple-logo.png"
                   alt="Apple"
@@ -98,9 +86,6 @@ const Login = () => {
                 Apple
               </Button>
               <Button className={styles.social_login_button}>
-                {/* <FacebookOutlined
-                  className={`${styles.social_login_icon} ${styles.facebook_icon}`}
-                /> */}
                 <img
                   src="./img/icons/facebook.png"
                   alt="Google"
