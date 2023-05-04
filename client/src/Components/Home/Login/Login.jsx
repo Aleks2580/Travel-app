@@ -15,12 +15,12 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginWrapper}>
-      <div className={styles.loginContainer}>
+    <div className={styles.login_wrapper}>
+      <div className={styles.login_container}>
         <h1>Log in</h1>
         <Form
           name="normal_login"
-          className={styles.loginForm}
+          className={styles.login_form}
           initialValues={{
             remember: true,
           }}
@@ -28,63 +28,70 @@ const Login = () => {
         >
           <Form.Item>
             <Input
-              prefix={<UserOutlined className="site-form-item-icon" />}
+              className={styles.input}
+              prefix={<UserOutlined className={styles.site_form_item_icon} />}
               placeholder="Email"
             />
           </Form.Item>
           <Form.Item>
             <Input
-              prefix={<LockOutlined className="site-form-item-icon" />}
+              className={styles.input}
+              prefix={<LockOutlined className={styles.site_form_item_icon} />}
               type="password"
               placeholder="Password"
             />
+            <Form.Item>
+              <a className={styles.login_form_forgot} href="/">
+                Forgot password
+              </a>
+            </Form.Item>
+
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                className={styles.login_form_button}
+              >
+                Log in
+              </Button>
+            </Form.Item>
+            <Form.Item>
+              <Checkbox className={styles.checkbox}>Remember me</Checkbox>
+            </Form.Item>
           </Form.Item>
+
           <Form.Item>
-            <a className={styles.loginFormForgot} href="/">
-              Forgot password
-            </a>
-          </Form.Item>
-          <Form.Item>
+            <span className={styles.span}>Don't have an account yet?</span>
+
             <Button
               type="primary"
               htmlType="submit"
-              className={styles.loginFormButton}
+              className={styles.register_form_button}
             >
-              Log in
+              Register
             </Button>
-            Or <a href="/">register now!</a>
           </Form.Item>
+
           <Form.Item>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-          <Form.Item>
-            <div className={styles.socialLoginContainer}>
-              <Button className={styles.socialLoginButton}>
-                <GoogleOutlined className={styles.socialLoginIcon} />
-                {/* <img
-                  
-                  src="/google.png"
-                  alt="Google"
-                /> */}
-                Continue with Google
+            <div className={styles.social_login_container}>
+              <div className={styles.or}>or continue with:</div>
+              <Button className={styles.social_login_button}>
+                <GoogleOutlined
+                  className={`${styles.social_login_icon} ${styles.google_icon}`}
+                />
+                Google
               </Button>
-              <Button className={styles.socialLoginButton}>
-                <AppleFilled className={styles.socialLoginIcon} />
-                {/* <img
-                  
-                  src="/apple.png"
-                  alt="Apple"
-                /> */}
-                Continue with Apple
+              <Button className={styles.social_login_button}>
+                <AppleFilled
+                  className={`${styles.social_login_icon} ${styles.apple_icon}`}
+                />
+                Apple
               </Button>
-              <Button className={styles.socialLoginButton}>
-                <FacebookOutlined className={styles.socialLoginIcon} />
-                {/* <img
-                  
-                  src="/facebook.png"
-                  alt="Facebook"
-                /> */}
-                Continue with Facebook
+              <Button className={styles.social_login_button}>
+                <FacebookOutlined
+                  className={`${styles.social_login_icon} ${styles.facebook_icon}`}
+                />
+                Facebook
               </Button>
             </div>
           </Form.Item>
