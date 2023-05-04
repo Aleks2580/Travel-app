@@ -7,18 +7,10 @@
 
 #dark.header_block {
   background-color: #212121;
-  /* background-color: #1e1e1e; */
-  /* background-color: #ff6347; */
-  /* background-color: #9400d3; */
-  /* background-color: #141414; */
 }
 
 #light.header_block {
   background-color: #eceff4;
-  /* background-color: #00bfff; */
-  /* background-color: #f5f5f5; */
-  /* background-color: #ececec; */
-  /* background-color: #f3f3f3; */
 }
 .main_block {
   min-height: 32vh;
@@ -49,10 +41,19 @@
 .right_block {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .user_block {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main_center_block {
@@ -90,7 +91,6 @@
   border: none;
   color: blue;
   box-shadow: none;
-  width: 9vw;
 }
 
 .user_button:hover {
@@ -99,12 +99,12 @@
   color: rgb(0, 162, 255) !important;
 }
 
-.icon_world {
-  /* width: 2vw; */
-}
-
 .user_block {
   width: 5.5vw;
+}
+
+.login_link {
+  margin-top: 0px;
 }
 
 .icon_menu {
