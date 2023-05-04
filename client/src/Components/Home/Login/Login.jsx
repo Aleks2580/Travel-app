@@ -1,15 +1,27 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Input, Button, Checkbox } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined, HomeOutlined } from "@ant-design/icons";
 import styles from "./Login.module.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
 
+  const goToHomePage = () => {
+    navigate("/");
+  };
+
   return (
     <div className={styles.login_wrapper}>
+      <img
+        onClick={goToHomePage}
+        src="./img/icons/home-page.png"
+        alt="Google"
+        className={styles.login_icon_back}
+      />
       <div className={styles.login_container}>
         <h1>Log in</h1>
         <Form

@@ -106,3 +106,16 @@ h1 {
 .input ::placeholder {
   font-family: "Montserrat", sans-serif;
 }
+
+.login_icon_back {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 1%;
+  top: 2%;
+  cursor: pointer;
+}
+
+.login_icon_back:hover {
+  transform: scale(1.2);
+}
