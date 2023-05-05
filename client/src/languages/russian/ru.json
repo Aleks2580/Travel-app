@@ -57,5 +57,15 @@
     "hotels": "Отели",
     "car_hire": "Аренда автомобилей",
     "explore": "Исследуйте везде"
+  },
+  "login": {
+    "emailPlaceholder": "Электронная почта",
+    "passwordPlaceholder": "Пароль",
+    "forgotPassword": "Забыли пароль",
+    "rememberMe": "Запомнить меня",
+    "dontHaveAccount": "Нет аккаунта?",
+    "register": "Регистрация",
+    "logIn": "Войти",
+    "continueWith": "или продолжить с :"
   }
 }

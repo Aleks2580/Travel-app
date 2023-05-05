@@ -57,5 +57,15 @@
     "hotels": "Hotels",
     "car_hire": "Car Hire",
     "explore": "Explore"
+  },
+  "login": {
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "forgotPassword": "Forgot password",
+    "rememberMe": "Remember me",
+    "dontHaveAccount": "Don't have an account yet?",
+    "register": "Register",
+    "logIn": "Log in",
+    "continueWith": "or continue with :"
   }
 }
