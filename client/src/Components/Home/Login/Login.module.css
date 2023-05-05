@@ -5,7 +5,7 @@
   height: 100vh;
   background-image: url("../../../../public/img/login-background-light.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
 }
 
 .login_wrapper_dark {
@@ -15,7 +15,7 @@
   height: 100vh;
   background-image: url("../../../../public/img/login-background-dark.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
 }
 
 .login_container {
@@ -57,7 +57,7 @@ h1 {
   font-family: "Montserrat", sans-serif;
   height: 40px;
   border-radius: 10px;
-  background-color: rgb(61, 61, 254);
+  background-color: rgb(132, 132, 246);
 }
 
 .login_form_button:hover {
@@ -74,11 +74,11 @@ h1 {
   font-family: "Montserrat", sans-serif;
   height: 40px;
   border-radius: 10px;
-  background-color: rgb(97, 97, 245);
+  background-color: rgb(111, 186, 107);
 }
 
 .register_form_button:hover {
-  background-color: rgba(8, 8, 244, 0.737) !important;
+  background-color: rgb(86, 144, 83) !important;
 }
 
 .social_login_container {
