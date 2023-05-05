@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Button, Checkbox } from "antd";
-import { UserOutlined, LockOutlined, HomeOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { ThemeContext } from "../../../App";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 import styles from "./Login.module.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
+  const { t } = useTranslation();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
@@ -15,7 +20,7 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.login_wrapper}>
+    <div className={`${styles[`login_wrapper_${theme}`]}`}>
       <img
         onClick={goToHomePage}
         src="./img/icons/home-page.png"

@@ -38,7 +38,7 @@ export default function SearchHeader() {
     console.log(`Autocomplete data: ${JSON.stringify(data)}`);
     setResults(data);
   };
-  console.log(results);
+ 
 
   useEffect(() => {
     setIsLoading(false);
