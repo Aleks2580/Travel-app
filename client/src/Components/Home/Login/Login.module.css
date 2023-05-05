@@ -1,11 +1,21 @@
-.login_wrapper {
+.login_wrapper_light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../../../../public/img/login-background-light.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.login_wrapper_dark {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-image: url("../../../../public/img/login-background-dark.jpg");
   background-size: cover;
-  background-position: top;
+  background-position: center;
 }
 
 .login_container {
