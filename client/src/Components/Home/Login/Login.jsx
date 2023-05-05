@@ -28,7 +28,7 @@ const Login = () => {
         className={styles.login_icon_back}
       />
       <div className={styles.login_container}>
-        <h1>Log in</h1>
+        <h1>{t("login.logIn")}</h1>
         <Form
           name="normal_login"
           className={styles.login_form}
@@ -41,7 +41,7 @@ const Login = () => {
             <Input
               className={styles.input}
               prefix={<UserOutlined className={styles.site_form_item_icon} />}
-              placeholder="Email"
+              placeholder={t("login.emailPlaceholder")}
             />
           </Form.Item>
           <Form.Item>
@@ -49,11 +49,11 @@ const Login = () => {
               className={styles.input}
               prefix={<LockOutlined className={styles.site_form_item_icon} />}
               type="password"
-              placeholder="Password"
+              placeholder={t("login.passwordPlaceholder")}
             />
             <Form.Item>
               <a className={styles.login_form_forgot} href="/">
-                Forgot password
+                {t("login.forgotPassword")}
               </a>
             </Form.Item>
 
@@ -63,29 +63,31 @@ const Login = () => {
                 htmlType="submit"
                 className={styles.login_form_button}
               >
-                Log in
+                {t("login.logIn")}
               </Button>
             </Form.Item>
             <Form.Item>
-              <Checkbox className={styles.checkbox}>Remember me</Checkbox>
+              <Checkbox className={styles.checkbox}>
+                {t("login.rememberMe")}
+              </Checkbox>
             </Form.Item>
           </Form.Item>
 
           <Form.Item>
-            <span className={styles.span}>Don't have an account yet?</span>
+            <span className={styles.span}>{t("login.dontHaveAccount")}</span>
 
             <Button
               type="primary"
               htmlType="submit"
               className={styles.register_form_button}
             >
-              Register
+              {t("login.register")}
             </Button>
           </Form.Item>
 
           <Form.Item>
             <div className={styles.social_login_container}>
-              <div className={styles.or}>or continue with:</div>
+              <div className={styles.or}>{t("login.continueWith")}</div>
               <Button className={styles.social_login_button}>
                 <img
                   src="./img/icons/google.png"
