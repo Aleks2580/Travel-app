@@ -38,13 +38,33 @@ function App() {
             <Skeleton active size="large" paragraph={{ rows: 0 }} />
           </div>
         ) : (
-          <Switch
-            onChange={toggleTheme}
-            className={style.switch}
-            checkedChildren={t("theme_switch.light")}
-            unCheckedChildren={t("theme_switch.dark")}
-            checked={theme === "dark"}
-          />
+          <>
+            <Switch
+              onChange={toggleTheme}
+              className={style.switch}
+              // checkedChildren={t("theme_switch.light")}
+              unCheckedChildren={
+                <div className={style.icon_container}>
+                  <img
+                    className={style.icon_switch}
+                    src="./img/icons/sun.png"
+                    alt="sun"
+                  />
+                </div>
+              }
+              // unCheckedChildren={t("theme_switch.dark")}
+              checkedChildren={
+                <div className={style.icon_container}>
+                  <img
+                    className={style.icon_switch}
+                    src="./img/icons/moon.png"
+                    alt="moon"
+                  />
+                </div>
+              }
+              checked={theme === "dark"}
+            />
+          </>
         )}
 
         <Routes>
