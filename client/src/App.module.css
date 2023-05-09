@@ -1,11 +1,9 @@
 #light {
-  /* background-color: rgb(255, 255, 255) !important; */
-  color: black !important;
+  color: rgba(0, 0, 0, 0.914) !important;
 }
 
 #dark {
-  /* background-color: black !important; */
-  color: azure !important;
+  color: rgba(240, 255, 255, 0.922) !important;
 }
 
 #light .switch {
@@ -13,7 +11,7 @@
 }
 
 #dark .switch {
-  background: rgb(93, 92, 92);
+  background: rgb(208, 206, 206);
 }
 
 .switch {
@@ -23,6 +21,9 @@
   right: 0;
   margin-top: 0.5vw;
   margin-right: 0.6vw;
+  display: flex;
+  flex-direction: row;
+  width: 50px;
 }
 
 .app_main {
@@ -39,4 +40,18 @@
   right: 20%;
   margin-top: 0.5vw;
   margin-right: 0.6vw;
+}
+
+.icon_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.icon_switch {
+  width: 19px;
+  height: 19px;
+  margin-right: 6px;
 }

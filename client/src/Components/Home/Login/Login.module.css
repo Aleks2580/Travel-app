@@ -58,6 +58,7 @@ h1 {
   height: 40px;
   border-radius: 10px;
   background-color: rgb(132, 132, 246);
+  box-shadow: none;
 }
 
 .login_form_button:hover {
@@ -75,6 +76,7 @@ h1 {
   height: 40px;
   border-radius: 10px;
   background-color: rgb(111, 186, 107);
+  box-shadow: none;
 }
 
 .register_form_button:hover {
