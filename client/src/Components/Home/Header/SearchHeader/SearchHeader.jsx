@@ -23,13 +23,14 @@ export default function SearchHeader() {
   const [numAdults, setNumAdults] = useState(1);
   const [numChildren, setNumChildren] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
   const [term, setTerm] = useState("");
+  const [termTwo, setTermTwo] = useState("");
 
   const [results, setResults] = useState([]);
   const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
 
   const handleFromAutocomplete = async (from) => {
-    console.log(`Input value: ${from}`);
     setTerm(from);
     const response = await fetch(
       `http://localhost:5555/autocomplete?term=${from}`
@@ -38,6 +39,16 @@ export default function SearchHeader() {
     console.log(`Autocomplete data: ${JSON.stringify(data)}`);
     setResults(data);
   };
+
+  const handleFromAutocompleteTwo = async (to) => {
+    setTermTwo(to);
+    const response = await fetch(
+      `http://localhost:5555/autocomplete?term=${to}`
+    );
+    const data = await response.json();
+    console.log(`Autocomplete data: ${JSON.stringify(data)}`);
+    setResults(data);
+  }
  
 
   useEffect(() => {
@@ -96,6 +107,7 @@ export default function SearchHeader() {
                 options={Array.isArray(results) ? results : []}
                 placeholder={t("header_search.country_city")}
                 value={term}
+                name="InputFrom"
                 onChange={handleFromAutocomplete}
               />
               <span className={style.span_first_country}>
@@ -105,6 +117,10 @@ export default function SearchHeader() {
             <div className={style.middle_input_second_country}>
               <AutoComplete
                 className={style.input_second_country}
+                options={Array.isArray(results) ? results : []}
+                value={termTwo}
+                name="InputTo"
+                onChange={handleFromAutocompleteTwo}
                 placeholder={t("header_search.country_city")}
               />
               <span className={style.span_second_country}>
