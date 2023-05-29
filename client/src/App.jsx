@@ -65,7 +65,24 @@ function App() {
             />
           </>
         )}
-
+        <div className={style.icons}>
+          <div className={style.div_chat}>
+            <img
+              src="./img/icons/message.png"
+              alt="chat"
+              className={style.icon_chat}
+            />
+            <span className={style.text_chat}>Chat with us</span>
+          </div>
+          <div className={style.div_help}>
+            <img
+              src="./img/icons/user.png"
+              alt="help"
+              className={style.icon_help}
+            />
+            <span className={style.text_help}>Leave a message</span>
+          </div>
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

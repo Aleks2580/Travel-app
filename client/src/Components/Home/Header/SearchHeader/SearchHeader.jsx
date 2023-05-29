@@ -19,9 +19,9 @@ export default function SearchHeader() {
   const { t, i18n } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const [visible, setVisible] = useState(false);
-  const [cabinClass, setCabinClass] = useState([]);
-  const [numAdults, setNumAdults] = useState(1);
-  const [numChildren, setNumChildren] = useState(0);
+  // const [cabinClass, setCabinClass] = useState([]);
+  // const [numAdults, setNumAdults] = useState(1);
+  // const [numChildren, setNumChildren] = useState(0);
   const [travellersAndClass, setTravellersAndClass] = useState({
     adults: 1,
     children: 0,
@@ -69,9 +69,17 @@ export default function SearchHeader() {
   };
 
   const options = [
-    { label: t("modal_header_search.economy"), value: "economy" },
-    { label: t("modal_header_search.business"), value: "business" },
-    { label: t("modal_header_search.first"), value: "first" },
+    {
+      label: t("modal_header_search.economy"),
+      value: "economy",
+      name: "class",
+    },
+    {
+      label: t("modal_header_search.business"),
+      value: "business",
+      name: "class",
+    },
+    { label: t("modal_header_search.first"), value: "first", name: "class" },
   ];
 
   const handleOk = () => {
@@ -79,19 +87,32 @@ export default function SearchHeader() {
   };
 
   const handleCancel = () => {
+    setTravellersAndClass({
+      adults: 1,
+      children: 0,
+      class: "economy",
+    });
     setVisible(false);
   };
-
   const handleCabinClassChange = (values) => {
-    setCabinClass(values);
+    setTravellersAndClass((prevState) => ({
+      ...prevState,
+      class: values,
+    }));
   };
 
   const handleAdultsChange = (value) => {
-    setNumAdults(value);
+    setTravellersAndClass((prevState) => ({
+      ...prevState,
+      adults: value,
+    }));
   };
 
   const handleChildrenChange = (value) => {
-    setNumChildren(value);
+    setTravellersAndClass((prevState) => ({
+      ...prevState,
+      children: value,
+    }));
   };
 
   return (
@@ -162,9 +183,7 @@ export default function SearchHeader() {
                 value={
                   travellersAndClass.adults +
                   " " +
-                  `${
-                    travellersAndClass.adults === 1 ? "adult" : "travellers"
-                  }` +
+                  `${travellersAndClass.adults === 1 ? "adult" : "adults"}` +
                   " " +
                   `${
                     travellersAndClass.children
@@ -219,8 +238,10 @@ export default function SearchHeader() {
                   <div className={style.checkboxes}>
                     <Checkbox.Group
                       options={options}
+                      name="class"
                       onChange={handleCabinClassChange}
                       className={style.checkbox_group_item}
+                      value={[...travellersAndClass.class]}
                     />
                   </div>
                 </div>
@@ -231,9 +252,11 @@ export default function SearchHeader() {
 
                   <InputNumber
                     min={1}
-                    defaultValue={1}
+                    defaultValue={travellersAndClass.adults}
                     onChange={handleAdultsChange}
                     className={style.input_number}
+                    name="adults"
+                    value={travellersAndClass.adults}
                   />
 
                   <span className={style.modal_label_age}>
@@ -250,6 +273,7 @@ export default function SearchHeader() {
                     defaultValue={0}
                     onChange={handleChildrenChange}
                     className={style.input_number}
+                    value={travellersAndClass.children}
                   />
 
                   <span className={style.modal_label_age}>
