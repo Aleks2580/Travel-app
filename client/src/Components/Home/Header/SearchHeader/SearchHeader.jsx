@@ -22,12 +22,18 @@ export default function SearchHeader() {
   const [cabinClass, setCabinClass] = useState([]);
   const [numAdults, setNumAdults] = useState(1);
   const [numChildren, setNumChildren] = useState(0);
+  const [travellersAndClass, setTravellersAndClass] = useState({
+    adults: 1,
+    children: 0,
+    class: "economy",
+  });
   const [isLoading, setIsLoading] = useState(true);
 
   const [term, setTerm] = useState("");
   const [termTwo, setTermTwo] = useState("");
 
-  const [results, setResults] = useState([]);
+  const [resultsFrom, setResultsFrom] = useState([]);
+  const [resultsTo, setResultsTo] = useState([]);
   const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
 
   const handleFromAutocomplete = async (from) => {
@@ -37,7 +43,7 @@ export default function SearchHeader() {
     );
     const data = await response.json();
     console.log(`Autocomplete data: ${JSON.stringify(data)}`);
-    setResults(data);
+    setResultsFrom(data);
   };
 
   const handleFromAutocompleteTwo = async (to) => {
@@ -47,9 +53,8 @@ export default function SearchHeader() {
     );
     const data = await response.json();
     console.log(`Autocomplete data: ${JSON.stringify(data)}`);
-    setResults(data);
-  }
- 
+    setResultsTo(data);
+  };
 
   useEffect(() => {
     setIsLoading(false);
@@ -104,7 +109,7 @@ export default function SearchHeader() {
             <div className={style.middle_input_first_country}>
               <AutoComplete
                 className={`${style.input_first_country} auto-complete`}
-                options={Array.isArray(results) ? results : []}
+                options={Array.isArray(resultsFrom) ? resultsFrom : []}
                 placeholder={t("header_search.country_city")}
                 value={term}
                 name="InputFrom"
@@ -117,7 +122,7 @@ export default function SearchHeader() {
             <div className={style.middle_input_second_country}>
               <AutoComplete
                 className={style.input_second_country}
-                options={Array.isArray(results) ? results : []}
+                options={Array.isArray(resultsTo) ? resultsTo : []}
                 value={termTwo}
                 name="InputTo"
                 onChange={handleFromAutocompleteTwo}
@@ -151,7 +156,35 @@ export default function SearchHeader() {
               className={style.middle_input_person}
               onClick={() => setVisible(true)}
             >
-              <Input className={style.middle_person} readOnly />
+              <Input
+                className={style.middle_person}
+                readOnly
+                value={
+                  travellersAndClass.adults +
+                  " " +
+                  `${
+                    travellersAndClass.adults === 1 ? "adult" : "travellers"
+                  }` +
+                  " " +
+                  `${
+                    travellersAndClass.children
+                      ? travellersAndClass.children
+                      : ""
+                  }` +
+                  `${travellersAndClass.children ? " " : ""}` +
+                  `${
+                    travellersAndClass.children
+                      ? `${
+                          travellersAndClass.children === 1
+                            ? "child"
+                            : "children"
+                        }`
+                      : ""
+                  }` +
+                  " " +
+                  travellersAndClass.class
+                }
+              />
               <span className={style.span_input_person}>
                 {t("header_search.travellers")}:
               </span>
