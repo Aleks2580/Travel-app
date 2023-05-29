@@ -19,9 +19,9 @@ export default function SearchHeader() {
   const { t, i18n } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const [visible, setVisible] = useState(false);
-  const [cabinClass, setCabinClass] = useState([]);
-  const [numAdults, setNumAdults] = useState(1);
-  const [numChildren, setNumChildren] = useState(0);
+  // const [cabinClass, setCabinClass] = useState([]);
+  // const [numAdults, setNumAdults] = useState(1);
+  // const [numChildren, setNumChildren] = useState(0);
   const [travellersAndClass, setTravellersAndClass] = useState({
     adults: 1,
     children: 0,
@@ -94,18 +94,25 @@ export default function SearchHeader() {
     });
     setVisible(false);
   };
-
-  const handleCabinClassChange = (e, values) => {
-    console.log(e.name);
-    setCabinClass(values);
+  const handleCabinClassChange = (values) => {
+    setTravellersAndClass((prevState) => ({
+      ...prevState,
+      class: values,
+    }));
   };
 
   const handleAdultsChange = (value) => {
-    setNumAdults(value);
+    setTravellersAndClass((prevState) => ({
+      ...prevState,
+      adults: value,
+    }));
   };
 
   const handleChildrenChange = (value) => {
-    setNumChildren(value);
+    setTravellersAndClass((prevState) => ({
+      ...prevState,
+      children: value,
+    }));
   };
 
   return (
@@ -234,6 +241,7 @@ export default function SearchHeader() {
                       name="class"
                       onChange={handleCabinClassChange}
                       className={style.checkbox_group_item}
+                      value={[...travellersAndClass.class]}
                     />
                   </div>
                 </div>
@@ -248,6 +256,7 @@ export default function SearchHeader() {
                     onChange={handleAdultsChange}
                     className={style.input_number}
                     name="adults"
+                    value={travellersAndClass.adults}
                   />
 
                   <span className={style.modal_label_age}>
@@ -264,6 +273,7 @@ export default function SearchHeader() {
                     defaultValue={0}
                     onChange={handleChildrenChange}
                     className={style.input_number}
+                    value={travellersAndClass.children}
                   />
 
                   <span className={style.modal_label_age}>
