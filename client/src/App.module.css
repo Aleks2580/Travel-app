@@ -55,3 +55,83 @@
   height: 19px;
   margin-right: 6px;
 }
+
+/* .icons {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 2%;
+  right: 1%;
+}
+
+.icon_chat {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.icon_help {
+  width: 50px;
+  height: 50px;
+}
+
+.icon_chat:hover {
+  scale: 1.1;
+}
+.icon_help:hover {
+  scale: 1.1;
+} */
+.icons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 2%;
+  right: 1%;
+}
+
+.icon_chat,
+.icon_help {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.text_chat {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  right: 45%;
+  transform: translateX(-45%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 80px;
+  text-align: center;
+}
+
+.text_help {
+  display: none;
+  position: absolute;
+  bottom: 8px;
+  right: 45%;
+  transform: translateX(-45%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 80px;
+  text-align: center;
+}
+
+.div_chat:hover .text_chat,
+.div_help:hover .text_help {
+  display: block;
+}
+
+.icon_chat:hover,
+.icon_help:hover {
+  scale: 1.1;
+}

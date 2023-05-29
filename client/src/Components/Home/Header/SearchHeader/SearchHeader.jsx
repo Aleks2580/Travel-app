@@ -69,9 +69,17 @@ export default function SearchHeader() {
   };
 
   const options = [
-    { label: t("modal_header_search.economy"), value: "economy" },
-    { label: t("modal_header_search.business"), value: "business" },
-    { label: t("modal_header_search.first"), value: "first" },
+    {
+      label: t("modal_header_search.economy"),
+      value: "economy",
+      name: "class",
+    },
+    {
+      label: t("modal_header_search.business"),
+      value: "business",
+      name: "class",
+    },
+    { label: t("modal_header_search.first"), value: "first", name: "class" },
   ];
 
   const handleOk = () => {
@@ -79,10 +87,16 @@ export default function SearchHeader() {
   };
 
   const handleCancel = () => {
+    setTravellersAndClass({
+      adults: 1,
+      children: 0,
+      class: "economy",
+    });
     setVisible(false);
   };
 
-  const handleCabinClassChange = (values) => {
+  const handleCabinClassChange = (e, values) => {
+    console.log(e.name);
     setCabinClass(values);
   };
 
@@ -162,9 +176,7 @@ export default function SearchHeader() {
                 value={
                   travellersAndClass.adults +
                   " " +
-                  `${
-                    travellersAndClass.adults === 1 ? "adult" : "travellers"
-                  }` +
+                  `${travellersAndClass.adults === 1 ? "adult" : "adults"}` +
                   " " +
                   `${
                     travellersAndClass.children
@@ -219,6 +231,7 @@ export default function SearchHeader() {
                   <div className={style.checkboxes}>
                     <Checkbox.Group
                       options={options}
+                      name="class"
                       onChange={handleCabinClassChange}
                       className={style.checkbox_group_item}
                     />
@@ -231,9 +244,10 @@ export default function SearchHeader() {
 
                   <InputNumber
                     min={1}
-                    defaultValue={1}
+                    defaultValue={travellersAndClass.adults}
                     onChange={handleAdultsChange}
                     className={style.input_number}
+                    name="adults"
                   />
 
                   <span className={style.modal_label_age}>
