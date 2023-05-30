@@ -22,11 +22,13 @@ export default function SearchHeader() {
   // const [cabinClass, setCabinClass] = useState([]);
   // const [numAdults, setNumAdults] = useState(1);
   // const [numChildren, setNumChildren] = useState(0);
+
   const [travellersAndClass, setTravellersAndClass] = useState({
     adults: 1,
     children: 0,
     class: "economy",
   });
+  const [dates, setDates] = useState({ depart: "", return: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   const [term, setTerm] = useState("");
@@ -60,8 +62,12 @@ export default function SearchHeader() {
     setIsLoading(false);
   }, []);
 
-  const onChange = (date, dateString) => {
-    console.log(date, dateString);
+  const onChangeDepart = (date, dateString) => {
+    setDates((prev) => ({ ...prev, depart: dateString }));
+  };
+
+  const onChangeReturn = (date, dateString) => {
+    setDates((prev) => ({ ...prev, return: dateString }));
   };
 
   const onCheck = (e) => {
@@ -115,6 +121,24 @@ export default function SearchHeader() {
     }));
   };
 
+  const handleSearch = async () => {
+    const response = await fetch("http://localhost:5555/search_flight", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: term,
+        to: termTwo,
+        dates,
+        travellersAndClass,
+      }),
+    });
+
+    const flights = await response.json();
+    console.log(flights);
+  };
+
   return (
     <div className={style.middle_block_search}>
       {isLoading ? (
@@ -156,8 +180,9 @@ export default function SearchHeader() {
             <div className={style.middle_input_first_date}>
               <DatePicker
                 className={style.first_date}
-                onChange={onChange}
+                onChange={onChangeDepart}
                 locale={antdLocale}
+                name="depart"
               />
               <span className={style.span_first_date}>
                 {t("header_search.depart")}
@@ -166,7 +191,7 @@ export default function SearchHeader() {
             <div className={style.middle_input_second_date}>
               <DatePicker
                 className={style.second_date}
-                onChange={onChange}
+                onChange={onChangeReturn}
                 locale={antdLocale}
               />
               <span className={style.span_second_date}>
@@ -288,7 +313,11 @@ export default function SearchHeader() {
             </Modal>
 
             <div className={style.middle_button_search}>
-              <Button className={style.btn_search_trips} type="primary">
+              <Button
+                className={style.btn_search_trips}
+                type="primary"
+                onClick={handleSearch}
+              >
                 {t("header_search.search")}
               </Button>
             </div>
