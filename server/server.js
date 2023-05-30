@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const Amadeus = require("amadeus");
+const fetch = require("isomorphic-fetch");
 
 dotenv.config();
 
@@ -9,38 +10,60 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const amadeus = new Amadeus({
-  clientId: process.env.AMADEUS_CLIENT_ID,
-  clientSecret: process.env.AMADEUS_CLIENT_SECRET,
-});
-
 let accessToken = null; //store the access token
 
 // Middleware to obtain access token
+// const obtainAccessToken = async () => {
+//   try {
+//     const response = await amadeus.client
+//       .clientCredentials({
+//         grantType: "client_credentials",
+//       })
+//       .then((response) => response.data);
+
+//     accessToken = response.access_token;
+//     console.log("Access token obtained successfully!");
+//   } catch (error) {
+//     console.error("Failed to obtain access token:", error);
+//   }
+// };
+// Middleware to obtain access token
 const obtainAccessToken = async () => {
   try {
-    const response = await amadeus.client
-      .clientCredentials({
-        grantType: "client_credentials",
-      })
-      .then((response) => response.data);
+    const clientId = process.env.AMADEUS_CLIENT_ID;
+    const clientSecret = process.env.AMADEUS_CLIENT_SECRET;
+    const url = "https://test.api.amadeus.com/v1/security/oauth2/token";
+    const requestBody = `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`;
 
-    accessToken = response.access_token;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: requestBody,
+    });
+
+    const data = await response.json();
+    console.log("DATA TOKEN", data);
+    accessToken = data.access_token;
     console.log("Access token obtained successfully!");
   } catch (error) {
     console.error("Failed to obtain access token:", error);
   }
 };
 
-// Initial token retrieval
 obtainAccessToken();
 
-// Schedule token renewal before it expires (validity: 30 minutes)
 const renewToken = () => {
   setTimeout(obtainAccessToken, 29 * 60 * 1000);
 };
 
 renewToken();
+
+const amadeus = new Amadeus({
+  clientId: process.env.AMADEUS_CLIENT_ID,
+  clientSecret: process.env.AMADEUS_CLIENT_SECRET,
+});
 
 //Autocomplete fields
 
@@ -88,7 +111,8 @@ app.post("/search_flight", async (req, res) => {
     }
 
     const response = await amadeus.shopping.flightOffersSearch.get(
-      flightOffersSearchParams
+      flightOffersSearchParams,
+      { headers: { Authorization: `Bearer ${accessToken}` } }
     );
     console.log("REsPONSE_DATA:", response.data[0]);
     res.status(200).json({ data: response.data[0] });

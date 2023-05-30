@@ -9,6 +9,8 @@ import {
   InputNumber,
   Skeleton,
   AutoComplete,
+  Alert,
+  Spin,
 } from "antd";
 import { ThemeContext } from "../../../../App";
 import { useTranslation } from "react-i18next";
@@ -30,6 +32,7 @@ export default function SearchHeader() {
   });
   const [dates, setDates] = useState({ depart: "", return: "" });
   const [isLoading, setIsLoading] = useState(true);
+  const [searchLoading, setSearchIsLoading] = useState(false);
 
   const [term, setTerm] = useState("");
   const [termTwo, setTermTwo] = useState("");
@@ -122,6 +125,7 @@ export default function SearchHeader() {
   };
 
   const handleSearch = async () => {
+    setSearchIsLoading(true);
     const response = await fetch("http://localhost:5555/search_flight", {
       method: "POST",
       headers: {
@@ -137,6 +141,7 @@ export default function SearchHeader() {
 
     const flights = await response.json();
     console.log(flights);
+    setSearchIsLoading(false);
   };
 
   return (
@@ -332,6 +337,17 @@ export default function SearchHeader() {
               </Checkbox>
             </div>
           </div>
+          {searchLoading ? (
+            <Spin tip="Loading...">
+              <Alert
+                message="Searching for the beast deals..."
+                description="Will redirect you to the new page once the search is completed"
+                type="info"
+              />
+            </Spin>
+          ) : (
+            ""
+          )}
         </>
       )}
     </div>
