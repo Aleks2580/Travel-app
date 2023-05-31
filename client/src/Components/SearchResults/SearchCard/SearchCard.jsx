@@ -69,11 +69,11 @@ const SearchCard = ({ flight }) => {
         <div className={style.flightDetails}>
           <div className={style.time}>
             <span>{flight.itineraries[0].segments[0].departure.at}</span>
-            <span>{flight.itineraries[0].segments[1].arrival.at}</span>
+            <span>{flight.itineraries[0].segments[1]?.arrival.at}</span>
           </div>
           <div className={style.locations}>
             <span>{flight.itineraries[0].segments[0].departure.iataCode}</span>
-            <span>{flight.itineraries[0].segments[1].arrival.iataCode}</span>
+            <span>{flight.itineraries[0].segments[1]?.arrival.iataCode}</span>
           </div>
         </div>
         <div className={style.flightInfo}>

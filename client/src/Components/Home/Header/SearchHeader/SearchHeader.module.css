@@ -361,3 +361,11 @@
 .skeleton {
   margin-bottom: 70px;
 }
+
+.progress {
+  width: 72%;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
