@@ -84,7 +84,7 @@ app.post("/search_flight", async (req, res) => {
       children: travellersAndClass.children,
       travelClass: travellersAndClass.class.toUpperCase(),
       currencyCode: "USD",
-      max: 10,
+      max: 20,
     };
 
     if (dates.return) {

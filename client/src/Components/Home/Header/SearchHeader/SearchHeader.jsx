@@ -11,16 +11,16 @@ import {
   InputNumber,
   Skeleton,
   AutoComplete,
-  Alert,
-  Spin,
+  Progress,
+  message,
 } from "antd";
 import { ThemeContext } from "../../../../App";
 import { useTranslation } from "react-i18next";
 import enUS from "antd/es/date-picker/locale/en_US";
 import ruRU from "antd/es/date-picker/locale/ru_RU";
-import SearchResults from "../../../SearchResults/SearchResults";
 
 export default function SearchHeader() {
+  const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const { theme } = useContext(ThemeContext);
@@ -33,7 +33,7 @@ export default function SearchHeader() {
   const [dates, setDates] = useState({ depart: "", return: "" });
   const [isLoading, setIsLoading] = useState(true);
   const [searchLoading, setSearchIsLoading] = useState(false);
-
+  const [progressPercent, setProgressPercent] = useState(0);
   const [term, setTerm] = useState("");
   const [termTwo, setTermTwo] = useState("");
 
@@ -127,26 +127,51 @@ export default function SearchHeader() {
     }));
   };
 
-  const handleSearch = async () => {
-    setSearchIsLoading(true);
-    const response = await fetch("http://localhost:5555/search_flight", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: term,
-        to: termTwo,
-        dates,
-        travellersAndClass,
-      }),
+  const success = () => {
+    messageApi.open({
+      type: "loading",
+      content:
+        "Seacrh in progress. We will redirect you once it's been completed",
+      duration: 10,
     });
+  };
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: "From, To and Depart cannot be empty",
+    });
+  };
+  const handleSearch = async () => {
+    if (!term && !termTwo && !dates.depart) {
+      error();
+    } else {
+      success();
+      setSearchIsLoading(true);
+      const interval = setInterval(() => {
+        setProgressPercent((prevPercent) => prevPercent + 10);
+      }, 1000);
+      const response = await fetch("http://localhost:5555/search_flight", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: term,
+          to: termTwo,
+          dates,
+          travellersAndClass,
+        }),
+      });
 
-    const flights = await response.json();
-    console.log(flights.data);
-    setFlightsData(flights.data);
-    navigate("/search-results", { state: { flightsData: flights.data } });
-    setSearchIsLoading(false);
+      const flights = await response.json();
+      console.log(flights.data);
+      setFlightsData(flights.data);
+      setTimeout(() => {
+        clearInterval(interval);
+        setSearchIsLoading(false);
+        navigate("/search-results", { state: { flightsData: flights.data } });
+      }, 1000);
+    }
   };
 
   return (
@@ -157,6 +182,7 @@ export default function SearchHeader() {
         </div>
       ) : (
         <>
+          {contextHolder}
           <div className={style.middle_text_block}>
             {t("header_search.motto")}
           </div>
@@ -326,7 +352,7 @@ export default function SearchHeader() {
               <Button
                 className={style.btn_search_trips}
                 type="primary"
-                onClick={handleSearch}
+                onClick={() => handleSearch(success)}
               >
                 {t("header_search.search")}
               </Button>
@@ -342,7 +368,19 @@ export default function SearchHeader() {
               </Checkbox>
             </div>
           </div>
-          {searchLoading ? <Spin tip="Loading..." /> : ""}
+          {searchLoading ? (
+            <Progress
+              className={style.progress}
+              percent={progressPercent}
+              status="active"
+              strokeColor={{
+                "0%": "#108ee9",
+                "100%": "#87d068",
+              }}
+            />
+          ) : (
+            ""
+          )}
         </>
       )}
     </div>
