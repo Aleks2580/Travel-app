@@ -7,6 +7,7 @@ import { Switch, Skeleton } from "antd";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import Login from "./Components/Home/Login/Login";
+import SearchResults from "./Components/SearchResults/SearchResults";
 
 export const ThemeContext = createContext(null);
 
@@ -86,6 +87,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/search-results" element={<SearchResults />} />
         </Routes>
       </div>
     </ThemeContext.Provider>

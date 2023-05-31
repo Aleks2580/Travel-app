@@ -13,26 +13,11 @@ app.use(express.json());
 let accessToken = null; //store the access token
 
 // Middleware to obtain access token
-// const obtainAccessToken = async () => {
-//   try {
-//     const response = await amadeus.client
-//       .clientCredentials({
-//         grantType: "client_credentials",
-//       })
-//       .then((response) => response.data);
-
-//     accessToken = response.access_token;
-//     console.log("Access token obtained successfully!");
-//   } catch (error) {
-//     console.error("Failed to obtain access token:", error);
-//   }
-// };
-// Middleware to obtain access token
 const obtainAccessToken = async () => {
   try {
     const clientId = process.env.AMADEUS_CLIENT_ID;
     const clientSecret = process.env.AMADEUS_CLIENT_SECRET;
-    const url = "https://test.api.amadeus.com/v1/security/oauth2/token";
+    const url = "https://test.api.amadeus.com/v1/security/oauth2/token/";
     const requestBody = `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`;
 
     const response = await fetch(url, {
@@ -69,8 +54,6 @@ const amadeus = new Amadeus({
 
 app.get("/autocomplete", async (req, res) => {
   const { term } = req.query;
-  //console.log(`Search term: ${term}`);
-
   try {
     const response = await amadeus.referenceData.locations.get({
       keyword: term,
@@ -81,11 +64,8 @@ app.get("/autocomplete", async (req, res) => {
       value: `${location.name} (${location.iataCode})`,
       key: location.id,
     }));
-    //console.log("asfasf", locations[0]);
-    //console.log(`Locations: ${JSON.stringify(locations)}`);
     res.json(locations);
   } catch (error) {
-    //console.error(error);
     res.status(500).json({ error: "Something went wrong" });
   }
 });
@@ -97,13 +77,14 @@ app.post("/search_flight", async (req, res) => {
 
   try {
     const flightOffersSearchParams = {
-      originLocationCode: "SHA",
-      destinationLocationCode: "BKK",
+      originLocationCode: "LAX",
+      destinationLocationCode: "PVG",
       departureDate: dates.depart,
       adults: travellersAndClass.adults,
       children: travellersAndClass.children,
       travelClass: travellersAndClass.class.toUpperCase(),
       currencyCode: "USD",
+      max: 10,
     };
 
     if (dates.return) {
@@ -111,11 +92,11 @@ app.post("/search_flight", async (req, res) => {
     }
 
     const response = await amadeus.shopping.flightOffersSearch.get(
-      flightOffersSearchParams,
-      { headers: { Authorization: `Bearer ${accessToken}` } }
+      flightOffersSearchParams
+      // { headers: { Authorization: `Bearer ${accessToken}` } }
     );
-    console.log("REsPONSE_DATA:", response.data[0]);
-    res.status(200).json({ data: response.data[0] });
+    console.log("REsPONSE_DATA:", response.data);
+    res.status(200).json({ data: response.data });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "An error occurred" });

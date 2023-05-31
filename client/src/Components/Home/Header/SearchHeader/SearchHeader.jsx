@@ -1,4 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import style from "./SearchHeader.module.css";
 import {
   Input,
@@ -16,15 +18,13 @@ import { ThemeContext } from "../../../../App";
 import { useTranslation } from "react-i18next";
 import enUS from "antd/es/date-picker/locale/en_US";
 import ruRU from "antd/es/date-picker/locale/ru_RU";
+import SearchResults from "../../../SearchResults/SearchResults";
 
 export default function SearchHeader() {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const [visible, setVisible] = useState(false);
-  // const [cabinClass, setCabinClass] = useState([]);
-  // const [numAdults, setNumAdults] = useState(1);
-  // const [numChildren, setNumChildren] = useState(0);
-
   const [travellersAndClass, setTravellersAndClass] = useState({
     adults: 1,
     children: 0,
@@ -39,6 +39,7 @@ export default function SearchHeader() {
 
   const [resultsFrom, setResultsFrom] = useState([]);
   const [resultsTo, setResultsTo] = useState([]);
+  const [flightsData, setFlightsData] = useState(null);
   const antdLocale = i18n.language === "Russian" ? ruRU : enUS;
 
   const handleFromAutocomplete = async (from) => {
@@ -50,6 +51,8 @@ export default function SearchHeader() {
     console.log(`Autocomplete data: ${JSON.stringify(data)}`);
     setResultsFrom(data);
   };
+
+  //console.log(term.code);
 
   const handleFromAutocompleteTwo = async (to) => {
     setTermTwo(to);
@@ -140,7 +143,9 @@ export default function SearchHeader() {
     });
 
     const flights = await response.json();
-    console.log(flights);
+    console.log(flights.data);
+    setFlightsData(flights.data);
+    navigate("/search-results", { state: { flightsData: flights.data } });
     setSearchIsLoading(false);
   };
 
@@ -337,17 +342,7 @@ export default function SearchHeader() {
               </Checkbox>
             </div>
           </div>
-          {searchLoading ? (
-            <Spin tip="Loading...">
-              <Alert
-                message="Searching for the beast deals..."
-                description="Will redirect you to the new page once the search is completed"
-                type="info"
-              />
-            </Spin>
-          ) : (
-            ""
-          )}
+          {searchLoading ? <Spin tip="Loading..." /> : ""}
         </>
       )}
     </div>
