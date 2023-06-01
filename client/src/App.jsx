@@ -8,6 +8,12 @@ import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import Login from "./Components/Home/Login/Login";
 import SearchResults from "./Components/SearchResults/SearchResults";
+import {
+  MessageTwoTone,
+  QuestionCircleTwoTone,
+  MessageOutlined,
+  QuestionCircleOutlined,
+} from "@ant-design/icons";
 
 export const ThemeContext = createContext(null);
 
@@ -68,20 +74,12 @@ function App() {
         )}
         <div className={style.icons}>
           <div className={style.div_chat}>
-            <img
-              src="./img/icons/message.png"
-              alt="chat"
-              className={style.icon_chat}
-            />
+            <MessageOutlined className={style.icon_chat} />
             <span className={style.text_chat}>Chat with us</span>
           </div>
           <div className={style.div_help}>
-            <img
-              src="./img/icons/user.png"
-              alt="help"
-              className={style.icon_help}
-            />
-            <span className={style.text_help}>Leave a message</span>
+            <QuestionCircleOutlined className={style.icon_help} />
+            <span className={style.text_help}>Report an issue</span>
           </div>
         </div>
         <Routes>
