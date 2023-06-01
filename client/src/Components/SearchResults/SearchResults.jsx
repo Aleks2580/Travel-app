@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import SearchCard from "./SearchCard/SearchCard";
 import style from "./SearchResults.module.css";
 import { Layout } from "antd";
+import SearchHeader from "../Home/Header/SearchHeader/SearchHeader";
 const { Header, Footer, Sider, Content } = Layout;
 const headerStyle = {
   textAlign: "center",
@@ -37,7 +38,7 @@ export default function SearchResults() {
   const flights = location.state?.flightsData || [];
   return (
     <Layout>
-      <Header style={headerStyle}>Header</Header>
+      <Header style={headerStyle}>{/* <SearchHeader /> */}</Header>
       <Layout hasSider>
         <Sider style={siderStyle}>Sider</Sider>
         <Content style={contentStyle}>

@@ -142,8 +142,7 @@ h1 {
 }
 
 .login_icon_back {
-  width: 30px;
-  height: 30px;
+  font-size: 30px;
   position: absolute;
   left: 0.5%;
   top: 1%;

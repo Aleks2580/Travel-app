@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Button, Checkbox } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  LockOutlined,
+  RollbackOutlined,
+} from "@ant-design/icons";
 import { ThemeContext } from "../../../App";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
@@ -21,10 +25,14 @@ const Login = () => {
 
   return (
     <div className={`${styles[`login_wrapper_${theme}`]}`}>
-      <img
+      {/* <img
         onClick={goToHomePage}
         src="./img/icons/home-page.png"
         alt="Google"
+        className={styles.login_icon_back}
+      /> */}
+      <RollbackOutlined
+        onClick={goToHomePage}
         className={styles.login_icon_back}
       />
       <div className={styles.login_container}>
