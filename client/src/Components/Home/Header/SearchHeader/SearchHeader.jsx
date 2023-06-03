@@ -52,7 +52,7 @@ export default function SearchHeader() {
     setResultsFrom(data);
   };
 
-  //console.log(term.code);
+  console.log(term.code);
 
   const handleFromAutocompleteTwo = async (to) => {
     setTermTwo(to);
