@@ -1,9 +1,10 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SearchCard from "./SearchCard/SearchCard";
 import style from "./SearchResults.module.css";
 import { Layout } from "antd";
 import SearchHeader from "../Home/Header/SearchHeader/SearchHeader";
+import { RollbackOutlined } from "@ant-design/icons";
 const { Header, Footer, Sider, Content } = Layout;
 const headerStyle = {
   textAlign: "center",
@@ -36,8 +37,14 @@ const footerStyle = {
 export default function SearchResults() {
   const location = useLocation();
   const flights = location.state?.flightsData || [];
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate("/");
+  };
   return (
     <Layout>
+      <RollbackOutlined onClick={handleGoBack} className={style.icon_back} />
       <Header style={headerStyle}>{/* <SearchHeader /> */}</Header>
       <Layout hasSider>
         <Sider style={siderStyle}>Sider</Sider>

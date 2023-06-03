@@ -62,6 +62,7 @@ app.get("/autocomplete", async (req, res) => {
     const locations = response.data.map((location) => ({
       label: `${location.name} (${location.iataCode})`,
       value: `${location.name} (${location.iataCode})`,
+      code: location.iataCode,
       key: location.id,
     }));
     res.json(locations);
@@ -73,12 +74,16 @@ app.get("/autocomplete", async (req, res) => {
 // Search request
 app.post("/search_flight", async (req, res) => {
   const { from, to, dates, travellersAndClass } = req.body;
-  console.log(req.body);
+  const cityCodeFrom = from.substring(
+    from.lastIndexOf("(") + 1,
+    from.lastIndexOf(")")
+  );
+  const cityCodeTo = to.substring(to.lastIndexOf("(") + 1, to.lastIndexOf(")"));
 
   try {
     const flightOffersSearchParams = {
-      originLocationCode: "LAX",
-      destinationLocationCode: "PVG",
+      originLocationCode: cityCodeFrom,
+      destinationLocationCode: cityCodeTo,
       departureDate: dates.depart,
       adults: travellersAndClass.adults,
       children: travellersAndClass.children,
