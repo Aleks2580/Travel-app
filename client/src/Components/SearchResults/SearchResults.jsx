@@ -2,37 +2,10 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SearchCard from "./SearchCard/SearchCard";
 import style from "./SearchResults.module.css";
-import { Layout } from "antd";
-import SearchHeader from "../Home/Header/SearchHeader/SearchHeader";
+//import SearchHeader from "../Home/Header/SearchHeader/SearchHeader";
 import { RollbackOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
-const headerStyle = {
-  textAlign: "center",
-  color: "#fff",
-  height: "15vh",
-  paddingInline: 50,
-  lineHeight: "64px",
-  backgroundColor: "#7dbcea",
-};
-const contentStyle = {
-  textAlign: "center",
-  minHeight: "75vh",
-  lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#108ee9",
-};
-const siderStyle = {
-  textAlign: "center",
-  lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#3ba0e9",
-};
-const footerStyle = {
-  textAlign: "center",
-  color: "#fff",
-  backgroundColor: "#7dbcea",
-  height: "10vh",
-};
 
 export default function SearchResults() {
   const location = useLocation();
@@ -43,22 +16,20 @@ export default function SearchResults() {
     navigate("/");
   };
   return (
-    <Layout>
+    <Layout className={style.layout_main}>
       <RollbackOutlined onClick={handleGoBack} className={style.icon_back} />
-      <Header style={headerStyle}>{/* <SearchHeader /> */}</Header>
-      <Layout hasSider>
-        <Sider style={siderStyle}>Sider</Sider>
-        <Content style={contentStyle}>
-          <div className={style.main}>
-            {flights.map((flight, index) => (
-              <SearchCard key={index} flight={flight} />
-            ))}
-            TICKETS
-          </div>
+      <Header className={style.header}>HEADER</Header>
+      <Layout className={style.layout_secondary}>
+        <Sider className={style.sider_left}>Sider</Sider>
+        <Content className={style.content}>
+          {flights.map((flight, index) => (
+            <SearchCard key={index} flight={flight} />
+          ))}
+          TICKETS
         </Content>
-        <Sider style={siderStyle}>Sider</Sider>
+        <Sider className={style.sider_right}>Sider</Sider>
       </Layout>
-      <Footer style={footerStyle}>Footer</Footer>
+      <Footer className={style.footer}>Footer</Footer>
     </Layout>
   );
 }

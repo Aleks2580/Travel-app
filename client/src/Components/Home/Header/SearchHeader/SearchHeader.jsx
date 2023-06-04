@@ -195,6 +195,8 @@ export default function SearchHeader() {
                 value={term}
                 name="InputFrom"
                 onChange={handleFromAutocomplete}
+                allowClear
+                status=""
               />
               <span className={style.span_first_country}>
                 {t("header_search.from")}:
@@ -208,6 +210,7 @@ export default function SearchHeader() {
                 name="InputTo"
                 onChange={handleFromAutocompleteTwo}
                 placeholder={t("header_search.country_city")}
+                allowClear
               />
               <span className={style.span_second_country}>
                 {t("header_search.to")}:
