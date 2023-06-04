@@ -8,12 +8,7 @@ import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import Login from "./Components/Home/Login/Login";
 import SearchResults from "./Components/SearchResults/SearchResults";
-import {
-  MessageTwoTone,
-  QuestionCircleTwoTone,
-  MessageOutlined,
-  QuestionCircleOutlined,
-} from "@ant-design/icons";
+import { MessageOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 
 export const ThemeContext = createContext(null);
 
