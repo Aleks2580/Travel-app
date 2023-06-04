@@ -1,16 +1,149 @@
-.main {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .icon_back {
   font-size: 25px;
   position: absolute;
   left: 0.2%;
-  top: 0.5%;
+  top: 0.05%;
   cursor: pointer;
 }
-
 .icon_back:hover {
   scale: 1.1;
+}
+.layout_main {
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+.header {
+  height: 15vh;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.layout_secondary {
+  width: 100%;
+}
+.sider_left {
+  min-width: 20% !important;
+  background-color: transparent !important;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin-top: 25px;
+}
+.sider_right {
+  min-width: 20% !important;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  background: transparent !important;
+  margin-top: 25px;
+}
+
+.content {
+  margin-top: 25px;
+  width: 60%;
+  background-color: beige;
+}
+.footer {
+  background-color: gray;
+}
+
+.img_logo {
+  height: 10vh;
+}
+
+.text_logo {
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
+
+.route {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.date_to {
+  margin-left: 50px;
+  background-color: transparent;
+  border: none;
+}
+
+.date_from {
+  background-color: transparent;
+  border: none;
+}
+
+.add_one {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_two {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 25vh;
+}
+
+.add_three {
+  height: 25vh;
+}
+.adds {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.explore_hotels_button {
+  position: fixed;
+  min-height: 36px;
+  /* margin-top: 30px; */
+  width: 10%;
+  background-color: #05203c;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: none;
+}
+
+.explore_hotels_button:hover {
+  background-color: #05478d !important;
+}
+
+.carousel {
+  min-height: 25vh;
+  text-align: center;
+}
+.collapse {
+  background-color: transparent;
+  width: 30vh;
+}
+
+.image_carousel {
+  margin-top: 5px;
+  width: 100%;
+  height: 24vh;
+  object-fit: fill;
+  object-position: top;
 }
