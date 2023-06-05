@@ -130,7 +130,7 @@ export default function SearchHeader() {
       type: "loading",
       content:
         "Seacrh in progress. We will redirect you once it's been completed",
-      duration: 10,
+      duration: 20,
     });
   };
   const error = () => {
