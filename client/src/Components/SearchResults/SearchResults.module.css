@@ -4,6 +4,7 @@
   left: 0.2%;
   top: 0.05%;
   cursor: pointer;
+  z-index: 101;
 }
 .icon_back:hover {
   scale: 1.1;
@@ -19,6 +20,10 @@
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #f1f1f1;
 }
 .layout_secondary {
   width: 100%;
@@ -44,7 +49,6 @@
 .content {
   margin-top: 25px;
   width: 60%;
-  background-color: beige;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,15 +69,16 @@
 
 .text_logo {
   font-size: 22px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat" !important;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  position: fixed;
+  position: absolute;
 }
 
 .route {
@@ -81,12 +86,21 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
 }
 
 .date_to {
-  margin-left: 50px;
-  background-color: transparent;
+  background-color: transparent !important;
   border: none;
+  margin-left: 50px;
+}
+
+:global(.ant-picker input) {
+  background-color: transparent !important;
+  border: none;
+  font-family: "Montserrat" sans-serif !important;
+  font-weight: 700;
 }
 
 .date_from {
@@ -155,4 +169,23 @@
   height: 24vh;
   object-fit: fill;
   object-position: top;
+}
+
+.span_sort_by {
+  margin-right: 5px;
+  font-family: "Montserrat" sans-serif;
+  font-weight: 700;
+}
+
+.span_results {
+  margin-right: 5px;
+  font-family: "Montserrat" sans-serif;
+}
+
+.info_sort {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  width: 70%;
 }

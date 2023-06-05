@@ -167,7 +167,15 @@ export default function SearchHeader() {
       setTimeout(() => {
         clearInterval(interval);
         setSearchIsLoading(false);
-        navigate("/search-results", { state: { flightsData: flights.data } });
+        navigate("/search-results", {
+          state: {
+            flightsData: flights.data,
+            from: term,
+            to: termTwo,
+            depart: dates.depart,
+            return: dates.return,
+          },
+        });
       }, 1000);
     }
   };

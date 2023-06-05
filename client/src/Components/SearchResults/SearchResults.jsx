@@ -11,13 +11,21 @@ import {
   Button,
   Carousel,
   Collapse,
+  Select,
 } from "antd";
+import dayjs from "dayjs";
 const { Header, Footer, Sider, Content } = Layout;
 const { Panel } = Collapse;
 
 export default function SearchResults() {
   const location = useLocation();
   const flights = location.state?.flightsData || [];
+  const from = location.state?.from || [];
+  const to = location.state?.to || [];
+  const depart = location.state?.depart || [];
+  const back = location.state?.return || [];
+  console.log("DePART", depart);
+  console.log("BACK", back);
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -36,9 +44,13 @@ export default function SearchResults() {
           <div className={style.text_logo}>JetSearch</div>
         </div>
         <div className={style.route}>
-          Shanghai (PVG) - London (HTR)
-          <DatePicker className={style.date_to} />
-          <DatePicker className={style.date_from} />
+          {from} - {to}
+          <DatePicker className={style.date_to} value={dayjs(depart)} />
+          {back.length ? (
+            <DatePicker className={style.date_from} value={dayjs(back)} />
+          ) : (
+            ""
+          )}
         </div>
       </Header>
       <Layout className={style.layout_secondary}>
@@ -66,11 +78,37 @@ export default function SearchResults() {
           </Collapse>
         </Sider>
         <Content className={style.content}>
+          <div className={style.info_sort}>
+            <span className={style.span_results}>{flights.length} results</span>
+            <div>
+              <span className={style.span_sort_by}>Sort by</span>
+              <Select
+                defaultValue="Best"
+                style={{
+                  width: 120,
+                }}
+                //onChange={handleChange}
+                options={[
+                  {
+                    value: "best",
+                    label: "Best",
+                  },
+                  {
+                    value: "Cheapest first",
+                    label: "Cheapest first",
+                  },
+                  {
+                    value: "Fastest firts",
+                    label: "Fastest first",
+                  },
+                ]}
+              />
+            </div>
+          </div>
           <div className={style.flights}>
             {flights.map((flight, index) => (
               <SearchCard key={index} flight={flight} />
             ))}
-            TICKETS
           </div>
           <Pagination />
         </Content>
