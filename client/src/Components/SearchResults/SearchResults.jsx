@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SearchCard from "./SearchCard/SearchCard";
 import style from "./SearchResults.module.css";
@@ -11,18 +11,61 @@ import {
   Button,
   Carousel,
   Collapse,
+  Select,
+  Empty,
 } from "antd";
+import dayjs from "dayjs";
 const { Header, Footer, Sider, Content } = Layout;
 const { Panel } = Collapse;
 
 export default function SearchResults() {
   const location = useLocation();
-  const flights = location.state?.flightsData || [];
+  //const flights = location.state?.flightsData || [];
+  const [flights, setFlights] = useState(location.state?.flightsData || []);
+  const [dates, setDates] = useState({
+    depart: location.state?.depart || [],
+    return: location.state?.return || [],
+  });
+  const from = location.state?.from || [];
+  const to = location.state?.to || [];
+  // const depart = location.state?.depart || [];
+  // const back = location.state?.return || [];
+  // console.log("DePART", depart);
+  // console.log("BACK", back);
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const handleGoBack = () => {
     navigate("/");
   };
+
+  const handlePageChange = async () => {
+    try {
+      const response = await fetch("http://localhost:5555/search_flight", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from,
+          to,
+          dates,
+          //travellersAndClass,
+          page: currentPage, // Pass the current page number
+          pageSize: itemsPerPage, // Pass the items per page
+        }),
+      });
+
+      const data = await response.json();
+      // Update the flights state with the received flight results
+      setFlights(data.data);
+    } catch (error) {
+      console.error("Error fetching flight results:", error);
+      // Handle error case
+    }
+  };
+  console.log(currentPage);
   return (
     <Layout className={style.layout_main}>
       <RollbackOutlined onClick={handleGoBack} className={style.icon_back} />
@@ -36,9 +79,16 @@ export default function SearchResults() {
           <div className={style.text_logo}>JetSearch</div>
         </div>
         <div className={style.route}>
-          Shanghai (PVG) - London (HTR)
-          <DatePicker className={style.date_to} />
-          <DatePicker className={style.date_from} />
+          {from} - {to}
+          <DatePicker className={style.date_to} value={dayjs(dates.depart)} />
+          {dates.return.length ? (
+            <DatePicker
+              className={style.date_from}
+              value={dayjs(dates.return)}
+            />
+          ) : (
+            ""
+          )}
         </div>
       </Header>
       <Layout className={style.layout_secondary}>
@@ -66,13 +116,65 @@ export default function SearchResults() {
           </Collapse>
         </Sider>
         <Content className={style.content}>
+          {flights?.length ? (
+            <div className={style.info_sort}>
+              <span className={style.span_results}>
+                {flights.length} results
+              </span>
+              <div>
+                <span className={style.span_sort_by}>Sort by</span>
+                <Select
+                  defaultValue="Best"
+                  style={{
+                    width: 120,
+                  }}
+                  //onChange={handleChange}
+                  options={[
+                    {
+                      value: "best",
+                      label: "Best",
+                    },
+                    {
+                      value: "Cheapest first",
+                      label: "Cheapest first",
+                    },
+                    {
+                      value: "Fastest firts",
+                      label: "Fastest first",
+                    },
+                  ]}
+                />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className={style.flights}>
-            {flights.map((flight, index) => (
-              <SearchCard key={index} flight={flight} />
-            ))}
-            TICKETS
+            {flights.length ? (
+              flights.map((flight, index) => (
+                <SearchCard key={index} flight={flight} />
+              ))
+            ) : (
+              <Empty
+                className={style.empty}
+                description={<span>No tickets found. Please try again</span>}
+              />
+            )}
           </div>
-          <Pagination />
+          {flights.length ? (
+            <Pagination
+              current={currentPage}
+              pageSize={itemsPerPage}
+              total={flights.length}
+              onChange={(page) => {
+                setCurrentPage(page);
+                handlePageChange();
+              }}
+            />
+          ) : (
+            ""
+          )}
         </Content>
         <Sider className={style.sider_right}>
           <div className={style.adds}>

@@ -73,7 +73,7 @@ app.get("/autocomplete", async (req, res) => {
 
 // Search request
 app.post("/search_flight", async (req, res) => {
-  const { from, to, dates, travellersAndClass } = req.body;
+  const { from, to, dates, travellersAndClass, page, pageSize } = req.body;
   const cityCodeFrom = from.substring(
     from.lastIndexOf("(") + 1,
     from.lastIndexOf(")")
@@ -89,7 +89,8 @@ app.post("/search_flight", async (req, res) => {
       children: travellersAndClass.children,
       travelClass: travellersAndClass.class.toUpperCase(),
       currencyCode: "USD",
-      max: 10,
+      page,
+      pageSize,
     };
 
     if (dates.return) {
