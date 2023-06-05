@@ -189,3 +189,7 @@
   justify-content: space-between;
   width: 70%;
 }
+
+.empty {
+  height: 100%;
+}

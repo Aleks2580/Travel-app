@@ -5,7 +5,7 @@ import { DollarOutlined, ClockCircleOutlined } from "@ant-design/icons";
 
 const SearchCard = ({ flight }) => {
   const { currency, total } = flight.price;
-
+  console.log("FLIGHT", flight);
   return (
     <Card className={style.card}>
       <div className={style.cardHeader}>
