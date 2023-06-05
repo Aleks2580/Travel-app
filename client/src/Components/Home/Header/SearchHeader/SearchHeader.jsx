@@ -222,7 +222,7 @@ export default function SearchHeader() {
                 name="depart"
               />
               <span className={style.span_first_date}>
-                {t("header_search.depart")}
+                {t("header_search.depart")}:
               </span>
             </div>
             <div className={style.middle_input_second_date}>
