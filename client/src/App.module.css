@@ -7,7 +7,7 @@
 }
 
 #light .switch {
-  background: rgba(128, 128, 128, 0.684);
+  background: rgb(208, 206, 206);
 }
 
 #dark .switch {

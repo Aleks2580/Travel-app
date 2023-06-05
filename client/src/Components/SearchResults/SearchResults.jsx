@@ -81,7 +81,6 @@ export default function SearchResults() {
                   alt="airlines"
                   className={style.image_carousel}
                 />
-                {/* <button>SEARCH1</button> */}
               </div>
             </a>
             <a href="/hotel-search" className={style.add_link}>
