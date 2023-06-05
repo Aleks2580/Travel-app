@@ -66,10 +66,12 @@ export default function SearchResults() {
           </Collapse>
         </Sider>
         <Content className={style.content}>
-          {flights.map((flight, index) => (
-            <SearchCard key={index} flight={flight} />
-          ))}
-          TICKETS
+          <div className={style.flights}>
+            {flights.map((flight, index) => (
+              <SearchCard key={index} flight={flight} />
+            ))}
+            TICKETS
+          </div>
           <Pagination />
         </Content>
         <Sider className={style.sider_right}>
@@ -81,24 +83,6 @@ export default function SearchResults() {
                   alt="airlines"
                   className={style.image_carousel}
                 />
-              </div>
-            </a>
-            <a href="/hotel-search" className={style.add_link}>
-              <div className={style.add_two}>
-                <img
-                  src="../../../../img/hilton.jpg"
-                  alt="airlines"
-                  className={style.image_carousel}
-                />
-                <Button
-                  className={style.explore_hotels_button}
-                  key="save"
-                  type="primary"
-                  // onClick={handleSave}
-                >
-                  {/* {t("modal_settings.button")} */}
-                  Explore hotels
-                </Button>
               </div>
             </a>
             <a href="/hotel-search" className={style.add_link}>
@@ -119,6 +103,24 @@ export default function SearchResults() {
                     />
                   </div>
                 </Carousel>
+              </div>
+            </a>
+            <a href="/hotel-search" className={style.add_link}>
+              <div className={style.add_two}>
+                <img
+                  src="../../../../img/hilton.jpg"
+                  alt="airlines"
+                  className={style.image_carousel}
+                />
+                <Button
+                  className={style.explore_hotels_button}
+                  key="save"
+                  type="primary"
+                  // onClick={handleSave}
+                >
+                  {/* {t("modal_settings.button")} */}
+                  Explore hotels
+                </Button>
               </div>
             </a>
           </div>
