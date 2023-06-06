@@ -5,7 +5,7 @@ import { DollarOutlined, ClockCircleOutlined } from "@ant-design/icons";
 
 const SearchCard = ({ flight }) => {
   const { currency, total } = flight.price;
-  console.log("FLIGHT", flight);
+  //console.log("FLIGHT", flight);
   return (
     <Card className={style.card}>
       <div className={style.cardHeader}>
@@ -37,7 +37,11 @@ const SearchCard = ({ flight }) => {
           </div>
           <div className={style.flightStops}>
             <Tag color="blue">
-              {flight.itineraries[0].segments.length - 1} Stop
+              {flight.itineraries[0].segments.length - 1 === 0
+                ? "Direct"
+                : flight.itineraries[0].segments.length - 1 === 1
+                ? "1 Stop"
+                : `${flight.itineraries[0].segments.length - 1} Stops`}
             </Tag>
           </div>
         </div>

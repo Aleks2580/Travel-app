@@ -158,6 +158,8 @@ export default function SearchHeader() {
           to: termTwo,
           dates,
           travellersAndClass,
+          page: 1,
+          pageSize: 10,
         }),
       });
 
@@ -172,6 +174,7 @@ export default function SearchHeader() {
             flightsData: flights.data,
             from: term,
             to: termTwo,
+            travellersAndClass: travellersAndClass,
             depart: dates.depart,
             return: dates.return,
           },

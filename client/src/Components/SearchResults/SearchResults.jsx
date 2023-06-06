@@ -23,11 +23,13 @@ export default function SearchResults() {
   //const flights = location.state?.flightsData || [];
   const [flights, setFlights] = useState(location.state?.flightsData || []);
   const [dates, setDates] = useState({
-    depart: location.state?.depart || [],
-    return: location.state?.return || [],
+    depart: location.state?.depart || "",
+    return: location.state?.return || "",
   });
   const from = location.state?.from || [];
   const to = location.state?.to || [];
+  const travellersAndClass = location.state?.travellersAndClass || {};
+  console.log(travellersAndClass);
   // const depart = location.state?.depart || [];
   // const back = location.state?.return || [];
   // console.log("DePART", depart);
@@ -51,7 +53,7 @@ export default function SearchResults() {
           from,
           to,
           dates,
-          //travellersAndClass,
+          travellersAndClass,
           page: currentPage, // Pass the current page number
           pageSize: itemsPerPage, // Pass the items per page
         }),
@@ -81,7 +83,7 @@ export default function SearchResults() {
         <div className={style.route}>
           {from} - {to}
           <DatePicker className={style.date_to} value={dayjs(dates.depart)} />
-          {dates.return.length ? (
+          {dates?.return?.length ? (
             <DatePicker
               className={style.date_from}
               value={dayjs(dates.return)}
@@ -119,7 +121,7 @@ export default function SearchResults() {
           {flights?.length ? (
             <div className={style.info_sort}>
               <span className={style.span_results}>
-                {flights.length} results
+                {flights?.length} results
               </span>
               <div>
                 <span className={style.span_sort_by}>Sort by</span>
@@ -151,8 +153,8 @@ export default function SearchResults() {
           )}
 
           <div className={style.flights}>
-            {flights.length ? (
-              flights.map((flight, index) => (
+            {flights?.length ? (
+              flights?.map((flight, index) => (
                 <SearchCard key={index} flight={flight} />
               ))
             ) : (
@@ -162,11 +164,11 @@ export default function SearchResults() {
               />
             )}
           </div>
-          {flights.length ? (
+          {flights?.length ? (
             <Pagination
               current={currentPage}
               pageSize={itemsPerPage}
-              total={flights.length}
+              total={20}
               onChange={(page) => {
                 setCurrentPage(page);
                 handlePageChange();
