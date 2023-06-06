@@ -1,14 +1,27 @@
 import React from "react";
 import style from "./SearchCard.module.css";
 import { Card, Tag, Button } from "antd";
-import { DollarOutlined, ClockCircleOutlined } from "@ant-design/icons";
+import {
+  DollarOutlined,
+  ClockCircleOutlined,
+  ArrowRightOutlined,
+} from "@ant-design/icons";
 
 const SearchCard = ({ flight }) => {
   const { currency, total } = flight.price;
   //console.log("FLIGHT", flight);
   return (
-    <Card className={style.card}>
-      <div className={style.cardHeader}>
+    <div className={style.card}>
+      <div className={style.ticket}>
+        <div className={style.info}></div>
+        <div className={style.total_select}>
+          <span className={style.price}>135$</span>
+          <Button className={style.button_select}>
+            Select <ArrowRightOutlined />{" "}
+          </Button>
+        </div>
+      </div>
+      {/* <div className={style.cardHeader}>
         <div className={style.airlineLogo}>
           <img src={flight.airlineLogo} alt={flight.airlineName} />
         </div>
@@ -48,8 +61,8 @@ const SearchCard = ({ flight }) => {
       </div>
       <div className={style.cardFooter}>
         <Button type="primary">Select Flight</Button>
-      </div>
-    </Card>
+      </div> */}
+    </div>
   );
 };
 

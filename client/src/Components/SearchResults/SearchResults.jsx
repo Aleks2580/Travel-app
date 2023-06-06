@@ -119,35 +119,37 @@ export default function SearchResults() {
         </Sider>
         <Content className={style.content}>
           {flights?.length ? (
-            <div className={style.info_sort}>
-              <span className={style.span_results}>
-                {flights?.length} results
-              </span>
-              <div>
-                <span className={style.span_sort_by}>Sort by</span>
-                <Select
-                  defaultValue="Best"
-                  style={{
-                    width: 120,
-                  }}
-                  //onChange={handleChange}
-                  options={[
-                    {
-                      value: "best",
-                      label: "Best",
-                    },
-                    {
-                      value: "Cheapest first",
-                      label: "Cheapest first",
-                    },
-                    {
-                      value: "Fastest firts",
-                      label: "Fastest first",
-                    },
-                  ]}
-                />
+            <>
+              <div className={style.info_sort}>
+                <span className={style.span_results}>
+                  {flights?.length} results
+                </span>
+                <div>
+                  <span className={style.span_sort_by}>Sort by</span>
+                  <Select
+                    defaultValue="Best"
+                    style={{
+                      width: 120,
+                    }}
+                    //onChange={handleChange}
+                    options={[
+                      {
+                        value: "best",
+                        label: "Best",
+                      },
+                      {
+                        value: "Cheapest first",
+                        label: "Cheapest first",
+                      },
+                      {
+                        value: "Fastest firts",
+                        label: "Fastest first",
+                      },
+                    ]}
+                  />
+                </div>
               </div>
-            </div>
+            </>
           ) : (
             ""
           )}
