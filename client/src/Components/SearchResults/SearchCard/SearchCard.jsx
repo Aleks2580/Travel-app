@@ -13,9 +13,20 @@ const SearchCard = ({ flight }) => {
   return (
     <div className={style.card}>
       <div className={style.ticket}>
-        <div className={style.info}></div>
+        <div className={style.main_info}>
+          <div className={style.info}>
+            <div className={style.airlines}>AirChina</div>
+            <div className={style.time_duration_flight}></div>
+          </div>
+          <div className={style.info}>
+            <div className={style.airlines}>AirChina</div>
+            <div className={style.time_duration_flight}></div>
+          </div>
+        </div>
         <div className={style.total_select}>
-          <span className={style.price}>135$</span>
+          <span className={style.price}>{`${currency} ${Number(
+            total
+          ).toFixed()}`}</span>
           <Button className={style.button_select}>
             Select <ArrowRightOutlined />{" "}
           </Button>

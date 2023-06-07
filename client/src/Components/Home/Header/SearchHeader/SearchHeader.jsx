@@ -158,8 +158,6 @@ export default function SearchHeader() {
           to: termTwo,
           dates,
           travellersAndClass,
-          page: 1,
-          pageSize: 10,
         }),
       });
 
