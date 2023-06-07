@@ -26,17 +26,17 @@ export default function SearchResults() {
     depart: location.state?.depart || "",
     return: location.state?.return || "",
   });
-  const from = location.state?.from || [];
-  const to = location.state?.to || [];
-  const travellersAndClass = location.state?.travellersAndClass || {};
-  console.log(travellersAndClass);
-  // const depart = location.state?.depart || [];
-  // const back = location.state?.return || [];
-  // console.log("DePART", depart);
-  // console.log("BACK", back);
+  const [from, setFrom] = useState(location.state?.from || "");
+  const [to, setTo] = useState(location.state?.to || "");
+  const [travellersAndClass, setTravellersAndClass] = useState(
+    location.state?.travellersAndClass || {}
+  );
+  //const from = location.state?.from || [];
+  //const to = location.state?.to || [];
+  //const travellersAndClass = location.state?.travellersAndClass || {};
   const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const itemsPerPage = 10;
 
   const handleGoBack = () => {
     navigate("/");
@@ -54,8 +54,6 @@ export default function SearchResults() {
           to,
           dates,
           travellersAndClass,
-          page: currentPage, // Pass the current page number
-          pageSize: itemsPerPage, // Pass the items per page
         }),
       });
 
@@ -67,7 +65,7 @@ export default function SearchResults() {
       // Handle error case
     }
   };
-  console.log(currentPage);
+  //console.log(currentPage);
   return (
     <Layout className={style.layout_main}>
       <RollbackOutlined onClick={handleGoBack} className={style.icon_back} />
@@ -168,13 +166,13 @@ export default function SearchResults() {
           </div>
           {flights?.length ? (
             <Pagination
-              current={currentPage}
-              pageSize={itemsPerPage}
-              total={20}
-              onChange={(page) => {
-                setCurrentPage(page);
-                handlePageChange();
-              }}
+            // current={currentPage}
+            // pageSize={itemsPerPage}
+            // total={20}
+            // onChange={(page) => {
+            //   setCurrentPage(page);
+            //   handlePageChange();
+            // }}
             />
           ) : (
             ""

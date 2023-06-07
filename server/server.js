@@ -73,8 +73,21 @@ app.get("/autocomplete", async (req, res) => {
 
 // Search request
 app.post("/search_flight", async (req, res) => {
-  const { from, to, dates, travellersAndClass, page, pageSize } = req.body;
-  console.log("DATA", from, to, dates, travellersAndClass, page, pageSize);
+  const {
+    from,
+    to,
+    dates,
+    travellersAndClass,
+    //  page, pageSize
+  } = req.body;
+  // console.log(
+  //   "DATA",
+  //   from,
+  //   to,
+  //   dates,
+  //   travellersAndClass,
+  //   page, pageSize
+  // );
   const cityCodeFrom = from.substring(
     from.lastIndexOf("(") + 1,
     from.lastIndexOf(")")
@@ -90,6 +103,7 @@ app.post("/search_flight", async (req, res) => {
       children: travellersAndClass.children,
       travelClass: travellersAndClass.class.toUpperCase(),
       currencyCode: "USD",
+      max: 10,
       // page,
       // pageSize,
     };
@@ -104,9 +118,9 @@ app.post("/search_flight", async (req, res) => {
     );
     // console.log("RESPONSE_DATA:", response.data);
     // res.status(200).json({ data: response.data });
-    const offset = (page - 1) * pageSize;
-    const paginatedResults = response.data.slice(offset, offset + pageSize);
-    res.status(200).json({ data: paginatedResults });
+    // const offset = (page - 1) * pageSize;
+    // const paginatedResults = response.data.slice(offset, offset + pageSize);
+    res.status(200).json({ data: response.data });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "An error occurred" });
