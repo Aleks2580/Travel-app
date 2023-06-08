@@ -44,7 +44,7 @@ const SearchCard = ({ flight }) => {
               </div>
             </div>
           </div>
-          <div className={style.info}>
+          {/* <div className={style.info}>
             <div className={style.airlines}>AirChina</div>
             <div className={style.time_duration_flight}>
               <div className={style.time_airport}>
@@ -61,7 +61,7 @@ const SearchCard = ({ flight }) => {
                 <span className={style.airport}>LHR</span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className={style.total_select}>
           <span className={style.price}>{`${currency} ${Number(
