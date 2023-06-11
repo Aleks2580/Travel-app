@@ -1,28 +1,31 @@
 import React from "react";
 import style from "./SearchCard.module.css";
-import { Card, Tag, Button } from "antd";
-import {
-  DollarOutlined,
-  ClockCircleOutlined,
-  ArrowRightOutlined,
-} from "@ant-design/icons";
+import { Button } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 const SearchCard = ({ flight }) => {
   const { currency, total } = flight.price;
-  //console.log("FLIGHT", flight);
+  console.log("FLIGHT", flight);
+
   return (
     <div className={style.card}>
       <div className={style.ticket}>
         <div className={style.main_info}>
           <div className={style.info}>
-            <div className={style.airlines}>AirChina</div>
+            <div className={style.airlines}>
+              {flight.itineraries[0].segments[0].carrierCode}
+            </div>
             <div className={style.time_duration_flight}>
               <div className={style.time_airport}>
                 <span className={style.time}>13:45</span>
-                <span className={style.airport}>LHR</span>
+                <span className={style.airport}>
+                  {flight.itineraries[0].segments[0].departure.iataCode}
+                </span>
               </div>
               <div className={style.duration_arrow_direct}>
-                <span className={style.duration}>12h 40</span>
+                <span className={style.duration}>
+                  {flight.itineraries[0].duration.slice(2)}
+                </span>
                 <div className={style.arrow_plane}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +39,14 @@ const SearchCard = ({ flight }) => {
                     ></path>
                   </svg>
                 </div>
-                <span className={style.direct}>Direct</span>
+
+                {flight.itineraries[0].segments.length === 1 ? (
+                  <span className={style.direct}>Direct</span>
+                ) : (
+                  `${flight.itineraries[0].segments.length - 1} stop ${
+                    flight.itineraries[0].segments[1].departure.iataCode
+                  } `
+                )}
               </div>
               <div className={style.time_airport}>
                 <span className={style.time}>13:45</span>
@@ -45,23 +55,23 @@ const SearchCard = ({ flight }) => {
             </div>
           </div>
           {/* <div className={style.info}>
-            <div className={style.airlines}>AirChina</div>
-            <div className={style.time_duration_flight}>
-              <div className={style.time_airport}>
-                <span className={style.time}>13:45</span>
-                <span className={style.airport}>LHR</span>
-              </div>
-              <div className={style.duration_arrow_direct}>
-                <span className={style.duration}>12h 40</span>
-                <span className={style.arrow}>-------></span>
-                <span className={style.direct}>Direct</span>
-              </div>
-              <div className={style.time_airport}>
-                <span className={style.time}>13:45</span>
-                <span className={style.airport}>LHR</span>
-              </div>
-            </div>
-          </div> */}
+      <div className={style.airlines}>AirChina</div>
+      <div className={style.time_duration_flight}>
+        <div className={style.time_airport}>
+          <span className={style.time}>13:45</span>
+          <span className={style.airport}>LHR</span>
+        </div>
+        <div className={style.duration_arrow_direct}>
+          <span className={style.duration}>12h 40</span>
+          <span className={style.arrow}>-------></span>
+          <span className={style.direct}>Direct</span>
+        </div>
+        <div className={style.time_airport}>
+          <span className={style.time}>13:45</span>
+          <span className={style.airport}>LHR</span>
+        </div>
+      </div>
+    </div> */}
         </div>
         <div className={style.total_select}>
           <span className={style.price}>{`${currency} ${Number(
@@ -73,46 +83,46 @@ const SearchCard = ({ flight }) => {
         </div>
       </div>
       {/* <div className={style.cardHeader}>
-        <div className={style.airlineLogo}>
-          <img src={flight.airlineLogo} alt={flight.airlineName} />
+      <div className={style.airlineLogo}>
+        <img src={flight.airlineLogo} alt={flight.airlineName} />
+      </div>
+      <div className={style.price.total}>
+        <span className={style.currency}>
+          <DollarOutlined />
+        </span>
+        {`${currency} ${total}`}
+      </div>
+    </div>
+    <div className={style.cardBody}>
+      <div className={style.flightDetails}>
+        <div className={style.time}>
+          <span>{flight.itineraries[0].segments[0].departure.at}</span>
+          <span>{flight.itineraries[0].segments[1]?.arrival.at}</span>
         </div>
-        <div className={style.price.total}>
-          <span className={style.currency}>
-            <DollarOutlined />
-          </span>
-          {`${currency} ${total}`}
+        <div className={style.locations}>
+          <span>{flight.itineraries[0].segments[0].departure.iataCode}</span>
+          <span>{flight.itineraries[0].segments[1]?.arrival.iataCode}</span>
         </div>
       </div>
-      <div className={style.cardBody}>
-        <div className={style.flightDetails}>
-          <div className={style.time}>
-            <span>{flight.itineraries[0].segments[0].departure.at}</span>
-            <span>{flight.itineraries[0].segments[1]?.arrival.at}</span>
-          </div>
-          <div className={style.locations}>
-            <span>{flight.itineraries[0].segments[0].departure.iataCode}</span>
-            <span>{flight.itineraries[0].segments[1]?.arrival.iataCode}</span>
-          </div>
+      <div className={style.flightInfo}>
+        <div className={style.flightDuration}>
+          <ClockCircleOutlined />
+          <span>{flight.itineraries[0].duration}</span>
         </div>
-        <div className={style.flightInfo}>
-          <div className={style.flightDuration}>
-            <ClockCircleOutlined />
-            <span>{flight.itineraries[0].duration}</span>
-          </div>
-          <div className={style.flightStops}>
-            <Tag color="blue">
-              {flight.itineraries[0].segments.length - 1 === 0
-                ? "Direct"
-                : flight.itineraries[0].segments.length - 1 === 1
-                ? "1 Stop"
-                : `${flight.itineraries[0].segments.length - 1} Stops`}
-            </Tag>
-          </div>
+        <div className={style.flightStops}>
+          <Tag color="blue">
+            {flight.itineraries[0].segments.length - 1 === 0
+              ? "Direct"
+              : flight.itineraries[0].segments.length - 1 === 1
+              ? "1 Stop"
+              : `${flight.itineraries[0].segments.length - 1} Stops`}
+          </Tag>
         </div>
       </div>
-      <div className={style.cardFooter}>
-        <Button type="primary">Select Flight</Button>
-      </div> */}
+    </div>
+    <div className={style.cardFooter}>
+      <Button type="primary">Select Flight</Button>
+    </div> */}
     </div>
   );
 };
