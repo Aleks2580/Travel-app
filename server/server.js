@@ -80,14 +80,7 @@ app.post("/search_flight", async (req, res) => {
     travellersAndClass,
     //  page, pageSize
   } = req.body;
-  // console.log(
-  //   "DATA",
-  //   from,
-  //   to,
-  //   dates,
-  //   travellersAndClass,
-  //   page, pageSize
-  // );
+  console.log("DATA", from, to, dates, travellersAndClass);
   const cityCodeFrom = from.substring(
     from.lastIndexOf("(") + 1,
     from.lastIndexOf(")")
@@ -103,7 +96,7 @@ app.post("/search_flight", async (req, res) => {
       children: travellersAndClass.children,
       travelClass: travellersAndClass.class.toUpperCase(),
       currencyCode: "USD",
-      max: 10,
+      // max: 10,
       // page,
       // pageSize,
     };

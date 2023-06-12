@@ -27,6 +27,10 @@ const SearchCard = ({ flight }) => {
                   {flight.itineraries[0].duration.slice(2)}
                 </span>
                 <div className={style.arrow_plane}>
+                  {flight?.itineraries[0].segments.slice(1).map((itinerary) => (
+                    <span key={flight.id} className={style.stop_dot}></span>
+                  ))}
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     //xml:space="preserve"
@@ -43,9 +47,14 @@ const SearchCard = ({ flight }) => {
                 {flight.itineraries[0].segments.length === 1 ? (
                   <span className={style.direct}>Direct</span>
                 ) : (
-                  `${flight.itineraries[0].segments.length - 1} stop ${
-                    flight.itineraries[0].segments[1].departure.iataCode
-                  } `
+                  <>
+                    <span className={style.not_direct}>
+                      {flight.itineraries[0].segments.length - 1} stop{" "}
+                      <span className={style.stop_at}>
+                        {flight.itineraries[0].segments[1].departure.iataCode}
+                      </span>
+                    </span>
+                  </>
                 )}
               </div>
               <div className={style.time_airport}>
